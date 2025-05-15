@@ -183,13 +183,7 @@
 </head>
 <body>
 
-  <div class="side-icons">
-    <a href="https://github.com/rajkonkar" target="_blank">GitHub</a>
-    <a href="resume.pdf" target="_blank">Resume</a>
-    <a href="https://www.linkedin.com/in/raj-konkar-b70b512a0" target="_blank">LinkedIn</a>
-  </div>
-
-  <nav class="navbar">
+    <nav class="navbar">
     <div class="nav-container">
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
@@ -269,11 +263,70 @@
 
 <section id="ctf" data-aos="fade-up">
   <h2>CTF Writeups</h2>
-  <ul>
-    <li><strong>HackTheBox Machines:</strong> Rooted both Linux and Windows boxes; writeups show exploitation paths, privilege escalation, and post-exploitation insights.</li>
-    <li><strong>TryHackMe Labs:</strong> Completed beginner to intermediate challenges focused on enumeration, privilege escalation, and network attacks.</li>
-    <li><strong>Custom Web Exploits:</strong> Writeups covering XXE, command injection, SSRF, logic flaws in DVWA, Juice Shop, and custom labs.</li>
-  </ul>
+  <article>
+    <h3>CTF Challenge Write-Up: Real-World Web Exploits</h3>
+    <p><strong>Author:</strong> Raj Konkar<br><strong>Date:</strong> May 12, 2025</p>
+
+    <p>This write-up presents three web vulnerabilities I exploited during CTF practice sessions, simulating real-world scenarios: XML External Entity Injection (XXE), command injection, and a frontend logic flaw. Each challenge was approached with methodical testing and an emphasis on understanding both root cause and impact.</p>
+
+    <h4>🔓 Exploit 1: XML External Entity Injection (XXE) in Firmware Update API</h4>
+    <ul>
+      <li><strong>Vulnerability Type:</strong> XML External Entity Injection (XXE)</li>
+      <li><strong>Impact:</strong> Arbitrary file disclosure from server</li>
+      <li><strong>Target:</strong> /api/update endpoint</li>
+    </ul>
+    <p><strong>🔍 Reconnaissance & Discovery:</strong><br>
+    By reviewing frontend JavaScript (update.js), I found that the app sends XML to /api/update using <code>Content-Type: application/xml</code>. This indicated the use of an XML parser, potentially misconfigured.</p>
+    <p>I used curl to manually send malformed XML and observed error messages referencing encoding and entity parsing — a common indicator of vulnerable parsers.</p>
+    <p><strong>💥 Exploit Payload:</strong></p>
+    <pre><code>&lt;!DOCTYPE FirmwareUpdateConfig [
+  &lt;!ELEMENT FirmwareUpdateConfig ANY &gt;
+  &lt;!ENTITY xxe SYSTEM "file:///flag.txt"&gt;
+]&gt;
+&lt;FirmwareUpdateConfig&gt;
+  &lt;Firmware&gt;
+    &lt;Version&gt;&amp;xxe;&lt;/Version&gt;
+  &lt;/Firmware&gt;
+&lt;/FirmwareUpdateConfig&gt;</code></pre>
+    <p><strong>✅ Result:</strong><br>
+    The server response contained the full contents of <code>/flag.txt</code>, confirming a successful XXE-based file disclosure.</p>
+
+    <h4>🛠️ Exploit 2: Command Injection in PHP Time App</h4>
+    <ul>
+      <li><strong>Vulnerability Type:</strong> OS Command Injection</li>
+      <li><strong>Impact:</strong> Remote command execution and file read</li>
+      <li><strong>Target:</strong> <code>format</code> parameter in index.php</li>
+    </ul>
+    <p><strong>🔍 Reconnaissance & Discovery:</strong><br>
+    Source analysis revealed the following command logic:</p>
+    <pre><code>$this-&gt;command = "date '+" . $format . "'";</code></pre>
+    <p>No validation or escaping allowed injection of shell metacharacters.</p>
+    <p><strong>💥 Exploit Payload:</strong> <code>'; cat /flag; #</code><br>
+    Encoded: <code>%27%3Bcat%20/flag%3B%23</code></p>
+    <p><strong>✅ Result:</strong><br>
+    The app returned contents of <code>/flag</code>, confirming code execution.</p>
+
+    <h4>🎮 Exploit 3: Frontend Logic Flaw in Text-Based Game</h4>
+    <ul>
+      <li><strong>Vulnerability Type:</strong> Frontend-hidden logic command</li>
+      <li><strong>Impact:</strong> Hidden win condition execution</li>
+      <li><strong>Target:</strong> Text adventure game API</li>
+    </ul>
+    <p><strong>🔍 Reconnaissance & Discovery:</strong><br>
+    DevTools revealed a secret value inside <code>/api/options</code>:</p>
+    <pre><code>"secret": ["Blip-blop, in a pickle with a hiccup! Shmiggity-shmack"]</code></pre>
+    <p><strong>💥 Execution:</strong> Inputting the secret triggered a hidden <code>/api/monitor</code> route, displaying:</p>
+    <pre><code>HTB{D3v3l0p3r_t00l5_4r3_b35t_wh4t_y0u_Th1nk??!_ab637978c1631b43cc6040d8a1e544ba}</code></pre>
+
+    <h4>🧠 Key Takeaways</h4>
+    <ul>
+      <li>XXE and command injection stem from unsanitized, unchecked input.</li>
+      <li>Browser DevTools are crucial for discovering hidden client-side logic.</li>
+      <li>CTFs are powerful for building real-world exploit intuition and technical depth.</li>
+    </ul>
+
+    <p>📌 More writeups, tools, and security scripts: <a href="https://github.com/rajkonkar" target="_blank">https://github.com/rajkonkar</a></p>
+  </article>
 </section>
 
 <section id="experience" data-aos="fade-up">

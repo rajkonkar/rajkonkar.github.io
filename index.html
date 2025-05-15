@@ -3,141 +3,87 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Raj Konkar - Cybersecurity Portfolio">
   <title>Raj Konkar | Cybersecurity Portfolio</title>
   <style>
     body {
+      background-color: #0d0d0d;
+      color: #ff4c4c;
+      font-family: 'Courier New', Courier, monospace;
+      line-height: 1.7;
       margin: 0;
-      font-family: 'Courier New', monospace;
-      background-color: #0e0e0e;
-      color: #f1f1f1;
+      padding: 0;
     }
     header {
-      background-color: #111;
-      padding: 20px;
       text-align: center;
-      border-bottom: 2px solid #0f0;
+      padding: 40px 20px;
+      border-bottom: 2px dashed #ff4c4c;
     }
     header h1 {
       margin: 0;
-      color: #00ff00;
-      font-size: 2.5em;
+      font-size: 2.8em;
     }
-    nav {
-      text-align: center;
-      margin-top: 10px;
-    }
-    nav a {
-      color: #0f0;
-      text-decoration: none;
-      margin: 0 15px;
-      font-weight: bold;
+    header p {
+      font-size: 1.2em;
     }
     section {
       padding: 40px 20px;
-      max-width: 900px;
-      margin: auto;
+      border-bottom: 1px dashed #ff4c4c;
     }
-    section h2 {
-      color: #00ff99;
-      border-bottom: 1px solid #00ff99;
-      padding-bottom: 10px;
+    h2 {
+      font-size: 1.8em;
+      color: #ff1a1a;
     }
-    .project, .skill {
-      background-color: #1a1a1a;
-      padding: 20px;
-      margin: 15px 0;
-      border-left: 4px solid #0f0;
+    ul {
+      list-style-type: square;
+      margin-left: 20px;
     }
-    a.button {
-      display: inline-block;
-      background-color: #00ff99;
-      color: #000;
-      padding: 10px 20px;
-      margin-top: 10px;
+    a {
+      color: #ff4c4c;
       text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
     }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #111;
-      border-top: 1px solid #333;
+    a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Raj Konkar</h1>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <p>Cybersecurity Enthusiast | CTF Player | Blue Teaming & OT Security Explorer</p>
   </header>
 
   <section id="about">
     <h2>About Me</h2>
-    <p>
-      I’m a cybersecurity enthusiast and recent MSc graduate from the University of York, where I studied in a UK NCSC-certified program. I actively solve Hack The Box machines, document CTF writeups, and have recently started exploring OT security. I’m passionate about learning offensive techniques, penetration testing, and building real-world projects that challenge and grow my skills.
-    </p>
+    <p>I’m a recent MSc Cybersecurity graduate from the University of York (NCSC certified). With a strong technical base and a passion for hands-on learning, I focus on penetration testing, blue teaming, OT security, and CTF competitions. I enjoy translating knowledge into tools, writeups, and labs. I’m currently exploring threat detection, adversary emulation, and building mini-labs for real-world simulations.</p>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
-
-    <div class="project">
-      <h3>CTF Exploit Writeups</h3>
-      <p>Writeups for multiple exploitation scenarios including XXE, command injection, and logic flaws.</p>
-      <a href="https://github.com/rajkonkar/CTF-Writeups" class="button" target="_blank">View on GitHub</a>
-    </div>
-
-    <div class="project">
-      <h3>OT Security Lab - Node-RED & Modbus</h3>
-      <p>Custom industrial control simulation using Node-RED and OpenPLC, with live Modbus monitoring and UI control.</p>
-      <a href="https://github.com/rajkonkar/OT-Security-Lab" class="button" target="_blank">View Project</a>
-    </div>
-
-    <div class="project">
-      <h3>Hack The Box Progress</h3>
-      <p>Tracking and documenting machine solves, vulnerabilities discovered, and tools used.</p>
-      <a href="https://github.com/rajkonkar/hackthebox-writeups" class="button" target="_blank">View Repo</a>
-    </div>
+    <ul>
+      <li><strong>RajCyberTools:</strong> A toolkit containing custom bash scripts and recon utilities used during CTFs and internal lab assessments.</li>
+      <li><strong>Linux User Audit Tool:</strong> Automates the review of user accounts and permissions on Linux systems to quickly identify misconfigurations and privilege abuse risks.</li>
+      <li><strong>Wazuh SIEM Lab:</strong> End-to-end SIEM setup with Wazuh, simulating brute-force attacks and malware injections for real-time alert generation and threat detection.</li>
+      <li><strong>OpenPLC + Node-RED OT Lab:</strong> Ongoing project for understanding Modbus communication and designing ICS/SCADA attacks in a safe virtual environment.</li>
+      <li><a href="https://github.com/rajkonkar">More on GitHub →</a></li>
+    </ul>
   </section>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="skill">
-      <strong>Penetration Testing:</strong> Web, API, Logic Flaws, Injection, Linux PrivEsc
-    </div>
-    <div class="skill">
-      <strong>CTF & Labs:</strong> Hack The Box, TryHackMe, OWASP Top 10
-    </div>
-    <div class="skill">
-      <strong>Tools:</strong> Burp Suite, Nmap, Wireshark, Metasploit, Node-RED, OpenPLC
-    </div>
-    <div class="skill">
-      <strong>Languages:</strong> Python, Bash, SQL
-    </div>
-    <div class="skill">
-      <strong>Certifications:</strong> Level 2 Food Safety & Hygiene (for part-time chef experience), currently preparing for Security+ and OSCP.
-    </div>
+  <section id="writeups">
+    <h2>CTF Writeups</h2>
+    <ul>
+      <li><strong>HackTheBox Machines:</strong> Rooted multiple machines including Linux and Windows-based targets; detailed walkthroughs highlight initial foothold, privilege escalation, and lateral movement.</li>
+      <li><strong>TryHackMe Labs:</strong> Focused on beginner-to-intermediate networks and exploit labs with explanations of enumeration strategies and payload crafting.</li>
+      <li><strong>Vulnerable Web Apps:</strong> Practice writeups targeting XXE, command injection, SSRF, and logical flaws across deliberately vulnerable apps like DVWA, Juice Shop, and custom setups.</li>
+    </ul>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <p>You can find me and my work here:</p>
     <ul>
-      <li><a href="https://github.com/rajkonkar" target="_blank">GitHub: @rajkonkar</a></li>
-      <li><a href="https://www.linkedin.com/in/raj-konkar-b70b512a0" target="_blank">LinkedIn</a></li>
-      <li>Email: konkarraj1234@gmail.com</li>
+      <li>📧 <a href="mailto:konkarraj1234@gmail.com">konkarraj1234@gmail.com</a></li>
+      <li>🔗 <a href="https://www.linkedin.com/in/raj-konkar-b70b512a0">LinkedIn</a></li>
+      <li>📁 <a href="https://github.com/rajkonkar">GitHub</a></li>
     </ul>
   </section>
-
-  <footer>
-    <p>&copy; 2025 Raj Konkar. All rights reserved.</p>
-  </footer>
 </body>
 </html>

@@ -10,12 +10,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Segoe+UI&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <style>
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #0077cc;
+      border-radius: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #f0f0f0;
+    }
+  </style>
 </head>
 <body>
 
   <header class="hero">
-    <h1 id="typed-text"></h1>
+    <h1>Raj M. Konkar</h1>
     <p>Cybersecurity Graduate | Offensive Security Enthusiast | SIEM & Threat Detection Explorer</p>
     <p>📍 Leeds, UK | 📧 <a href="mailto:konkarraj1234@gmail.com">konkarraj1234@gmail.com</a></p>
   </header>
@@ -29,25 +40,42 @@
   <section id="skills" data-aos="fade-up">
     <h2>Skills & Tools</h2>
     <div class="grid">
-      <div class="card"><strong>Penetration Testing:</strong><br> Web, Linux, API, Logic flaws</div>
-      <div class="card"><strong>Tools:</strong><br> Nmap, Metasploit, Burp Suite, Wireshark, Wazuh, Splunk</div>
-      <div class="card"><strong>Scripting:</strong><br> Python, Bash (auditing, enumeration tools)</div>
-      <div class="card"><strong>Systems:</strong><br> Linux (Ubuntu/Kali), Windows Server, SQL environments</div>
-      <div class="card"><strong>SIEM/Defense:</strong><br> Custom Wazuh setup, brute-force simulation, log parsing</div>
-      <div class="card"><strong>Frameworks:</strong><br> MITRE ATT&CK, NIST CSF</div>
-      <div class="card"><strong>Soft Skills:</strong><br> Report writing, team collaboration, client interaction</div>
+      <button class="card toggle">Penetration Testing<br><small>Web, Linux, API, Logic flaws</small></button>
+      <button class="card toggle">Tools<br><small>Nmap, Metasploit, Burp Suite, Wireshark, Wazuh, Splunk</small></button>
+      <button class="card toggle">Scripting<br><small>Python, Bash (auditing, enumeration tools)</small></button>
+      <button class="card toggle">Systems<br><small>Linux (Ubuntu/Kali), Windows Server, SQL environments</small></button>
+      <button class="card toggle">SIEM/Defense<br><small>Wazuh setup, brute-force simulation, log parsing</small></button>
+      <button class="card toggle">Frameworks<br><small>MITRE ATT&CK, NIST CSF</small></button>
+      <button class="card toggle">Soft Skills<br><small>Report writing, collaboration, client interaction</small></button>
     </div>
   </section>
 
   <section id="projects" data-aos="fade-up">
     <h2>Projects</h2>
-    <ul>
-      <li><strong>RajCyberTools:</strong> A toolkit with custom Bash scripts and recon tools used for CTFs, enumeration, and system reviews. <a href="https://github.com/rajkonkar/RajCyberTools">View on GitHub</a></li>
-      <li><strong>Linux User Audit Tool:</strong> Scans user accounts, permissions, and sudo privileges to identify risks and misconfigurations.<a href="https://github.com/rajkonkar/linux-user-audit-tool">View on GitHub</a></li>
-      <li><strong>Wazuh SIEM Lab:</strong> Configured on Ubuntu, this lab simulates brute-force attacks and malware injections to trigger real-time alerts and threat analysis.<a href="https://github.com/rajkonkar/wazuh-siem-lab">View on GitHub</a></li>
-      <li><strong>OT Security Lab (OpenPLC + Node-RED):</strong> A hands-on ICS/SCADA lab environment simulating Modbus communications and attack vectors safely.</li>
-    </ul>
+    <div class="grid">
+      <button class="card toggle" onclick="toggleDetails('proj1')"><strong>RajCyberTools</strong><br>Click to expand</button>
+      <div class="card detail" id="proj1" style="display:none;">
+        Toolkit of custom Bash scripts and recon tools for CTFs, internal assessments. <a href="https://github.com/rajkonkar/RajCyberTools">View on GitHub</a>
+      </div>
+
+      <button class="card toggle" onclick="toggleDetails('proj2')"><strong>Linux User Audit Tool</strong><br>Click to expand</button>
+      <div class="card detail" id="proj2" style="display:none;">
+        Scans user accounts and sudo privileges for misconfigurations. <a href="https://github.com/rajkonkar/linux-user-audit-tool">View on GitHub</a>
+      </div>
+
+      <button class="card toggle" onclick="toggleDetails('proj3')"><strong>Wazuh SIEM Lab</strong><br>Click to expand</button>
+      <div class="card detail" id="proj3" style="display:none;">
+        Simulates brute-force and malware scenarios using Wazuh alerts. <a href="https://github.com/rajkonkar/wazuh-siem-lab">View on GitHub</a>
+      </div>
+
+      <button class="card toggle" onclick="toggleDetails('proj4')"><strong>OT Security Lab</strong><br>Click to expand</button>
+      <div class="card detail" id="proj4" style="display:none;">
+        Simulates Modbus communication attacks in ICS/SCADA using OpenPLC and Node-RED.
+      </div>
+    </div>
   </section>
+
+  <!-- Remaining sections stay unchanged -->
 
   <section id="ctf" data-aos="fade-up">
     <h2>CTF Writeups</h2>
@@ -93,12 +121,11 @@
 
   <script>
     AOS.init();
-    new Typed('#typed-text', {
-      strings: ["Raj M. Konkar", "Offensive Security Aspirant", "Penetration Tester in Progress"],
-      typeSpeed: 50,
-      backSpeed: 30,
-      loop: true
-    });
+
+    function toggleDetails(id) {
+      const el = document.getElementById(id);
+      el.style.display = el.style.display === "none" ? "block" : "none";
+    }
   </script>
 </body>
 </html>

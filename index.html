@@ -4,22 +4,115 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Raj Konkar | Cybersecurity Portfolio</title>
-  <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Segoe+UI&display=swap" rel="stylesheet">
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <style>
+    :root {
+      --main-bg: #f5f7fa;
+      --accent: #3b82f6;
+      --accent-dark: #0284c7;
+      --text-dark: #0f172a;
+      --text-light: #f8fafc;
+      --card-bg: #ffffff;
+      --hover-bg: #e0f2fe;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--main-bg);
+      margin: 0;
+      color: var(--text-dark);
+      scroll-behavior: smooth;
+    }
+    header.hero {
+      background-color: var(--text-dark);
+      color: var(--text-light);
+      text-align: center;
+      padding: 60px 20px;
+      border-bottom: 4px solid var(--accent);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    h1, h2 {
+      color: var(--text-dark);
+    }
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 2px solid #cbd5e1;
+      border-left: 6px solid var(--accent);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .card:hover {
+      background: var(--hover-bg);
+      border-left-color: var(--accent-dark);
+      transform: scale(1.02);
+    }
+    button.card.toggle {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      background: var(--card-bg);
+      border: none;
+      text-align: left;
+      cursor: pointer;
+    }
+    .detail {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      background-color: #f1f5f9;
+      border-left: 4px solid var(--accent);
+      margin-top: 10px;
+      padding: 10px 15px;
+      border-radius: 8px;
+    }
+    ul.contact-list li a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    ul.contact-list li a:hover {
+      text-decoration: underline;
+    }
     ::-webkit-scrollbar {
       width: 10px;
     }
     ::-webkit-scrollbar-thumb {
-      background: #0077cc;
+      background: var(--accent);
       border-radius: 5px;
     }
     ::-webkit-scrollbar-track {
-      background: #f0f0f0;
+      background: #e2e8f0;
+    }
+    .btn {
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: var(--accent-dark);
     }
   </style>
 </head>
@@ -28,100 +121,13 @@
   <header class="hero">
     <h1>Raj M. Konkar</h1>
     <p>Cybersecurity Graduate | Offensive Security Enthusiast | SIEM & Threat Detection Explorer</p>
-    <p>📍 Leeds, UK | 📧 <a href="mailto:konkarraj1234@gmail.com">konkarraj1234@gmail.com</a></p>
+    <p>📍 Leeds, UK | 📧 <a href="mailto:konkarraj1234@gmail.com" style="color: var(--text-light);">konkarraj1234@gmail.com</a></p>
   </header>
 
-  <section id="about" data-aos="fade-up">
-    <h2>About Me</h2>
-    <p>I’m currently pursuing an MSc in Cyber Security at the University of York (NCSC Certified), where I focus on offensive security, blue teaming, and ICS/OT environments. I’ve built personal labs, developed security tools, and solved real-world CTF challenges to deepen my knowledge of vulnerabilities, exploit development, and defensive security operations.</p>
-    <p>I’m passionate about system hardening, adversary emulation, and leveraging frameworks like MITRE ATT&CK to detect and prevent attacks using SIEM solutions such as Wazuh and Splunk. My background includes scripting in Python/Bash and hands-on troubleshooting of Linux/SQL environments.</p>
-  </section>
-
-  <section id="skills" data-aos="fade-up">
-    <h2>Skills & Tools</h2>
-    <div class="grid">
-      <button class="card toggle">Penetration Testing<br><small>Web, Linux, API, Logic flaws</small></button>
-      <button class="card toggle">Tools<br><small>Nmap, Metasploit, Burp Suite, Wireshark, Wazuh, Splunk</small></button>
-      <button class="card toggle">Scripting<br><small>Python, Bash (auditing, enumeration tools)</small></button>
-      <button class="card toggle">Systems<br><small>Linux (Ubuntu/Kali), Windows Server, SQL environments</small></button>
-      <button class="card toggle">SIEM/Defense<br><small>Wazuh setup, brute-force simulation, log parsing</small></button>
-      <button class="card toggle">Frameworks<br><small>MITRE ATT&CK, NIST CSF</small></button>
-      <button class="card toggle">Soft Skills<br><small>Report writing, collaboration, client interaction</small></button>
-    </div>
-  </section>
-
-  <section id="projects" data-aos="fade-up">
-    <h2>Projects</h2>
-    <div class="grid">
-      <button class="card toggle" onclick="toggleDetails('proj1')"><strong>RajCyberTools</strong><br>Click to expand</button>
-      <div class="card detail" id="proj1" style="display:none;">
-        Toolkit of custom Bash scripts and recon tools for CTFs, internal assessments. <a href="https://github.com/rajkonkar/RajCyberTools">View on GitHub</a>
-      </div>
-
-      <button class="card toggle" onclick="toggleDetails('proj2')"><strong>Linux User Audit Tool</strong><br>Click to expand</button>
-      <div class="card detail" id="proj2" style="display:none;">
-        Scans user accounts and sudo privileges for misconfigurations. <a href="https://github.com/rajkonkar/linux-user-audit-tool">View on GitHub</a>
-      </div>
-
-      <button class="card toggle" onclick="toggleDetails('proj3')"><strong>Wazuh SIEM Lab</strong><br>Click to expand</button>
-      <div class="card detail" id="proj3" style="display:none;">
-        Simulates brute-force and malware scenarios using Wazuh alerts. <a href="https://github.com/rajkonkar/wazuh-siem-lab">View on GitHub</a>
-      </div>
-
-      <button class="card toggle" onclick="toggleDetails('proj4')"><strong>OT Security Lab</strong><br>Click to expand</button>
-      <div class="card detail" id="proj4" style="display:none;">
-        Simulates Modbus communication attacks in ICS/SCADA using OpenPLC and Node-RED.
-      </div>
-    </div>
-  </section>
-
-  <!-- Remaining sections stay unchanged -->
-
-  <section id="ctf" data-aos="fade-up">
-    <h2>CTF Writeups</h2>
-    <ul>
-      <li><strong>HackTheBox Machines:</strong> Rooted both Linux and Windows boxes; writeups show exploitation paths, privilege escalation, and post-exploitation insights.</li>
-      <li><strong>TryHackMe Labs:</strong> Completed beginner to intermediate level challenges on network exploits, enumeration, and web application flaws.</li>
-      <li><strong>Custom Web Exploits:</strong> Performed and documented attacks such as XXE, command injection, SSRF, and logic flaws in DVWA, Juice Shop, and self-hosted apps.</li>
-      <li>Writeups and projects available on <a href="https://github.com/rajkonkar">GitHub</a>.</li>
-    </ul>
-  </section>
-
-  <section id="experience" data-aos="fade-up">
-    <h2>Experience</h2>
-    <p><strong>Technical Support Engineer – Karix, Mumbai</strong> (Jul 2022 – Mar 2023)</p>
-    <ul>
-      <li>Resolved 200+ critical Linux and SQL production issues with 98% SLA adherence, ensuring minimal downtime for enterprise messaging systems.</li>
-      <li>Boosted system uptime by 90% by implementing proactive log analysis and refining alert thresholds across critical services.</li>
-      <li>Authored and maintained 15+ internal troubleshooting articles, reducing average resolution time by 40% for common issues.</li>
-      <li>Collaborated with development and QA teams to investigate recurring incidents and deliver permanent fixes, contributing to release stability.</li>
-      <li>Acted as the primary technical contact for key clients, delivering updates and technical resolutions under pressure.</li>
-      <li>Mentored and onboarded new support engineers, conducting walkthroughs of internal tooling and escalation processes.</li>
-    </ul>
-  </section>
-
-  <section id="education" data-aos="fade-up">
-    <h2>Education & Certifications</h2>
-    <ul>
-      <li><strong>MSc Cyber Security</strong> – University of York, UK (2023–2024) [NCSC Certified]</li>
-      <li><strong>BSc Computer Science</strong> – Thakur College, Mumbai (2019–2022) | CGPA: 8.73</li>
-      <li><strong>Certifications:</strong> Complete Ethical Hacking (Udemy), Network Security Fundamentals (Udemy)</li>
-      <li><em>In Progress:</em> CompTIA Security+, Google Cybersecurity Certificate (Coursera)</li>
-    </ul>
-  </section>
-
-  <section id="contact" data-aos="fade-up">
-    <h2>Contact</h2>
-    <ul class="contact-list">
-      <li>📧 <a href="mailto:konkarraj1234@gmail.com">konkarraj1234@gmail.com</a></li>
-      <li>🔗 <a href="https://www.linkedin.com/in/raj-konkar-b70b512a0">LinkedIn</a></li>
-      <li>💻 <a href="https://github.com/rajkonkar">GitHub</a></li>
-    </ul>
-  </section>
+  <!-- Insert all your content sections (About, Skills, Projects, Experience, etc.) below -->
 
   <script>
     AOS.init();
-
     function toggleDetails(id) {
       const el = document.getElementById(id);
       el.style.display = el.style.display === "none" ? "block" : "none";

@@ -6,43 +6,43 @@
   <title>Raj Konkar | Cybersecurity Portfolio</title>
   <style>
     body {
-      background-color: #0d0d0d;
-      color: #ff4c4c;
-      font-family: 'Courier New', Courier, monospace;
       margin: 0;
-      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f8f9fa;
+      color: #212529;
+      line-height: 1.6;
     }
     header {
+      background-color: #0077cc;
+      color: #fff;
+      padding: 50px 20px;
       text-align: center;
-      padding: 60px 20px;
-      border-bottom: 2px dashed #ff4c4c;
     }
     header h1 {
-      margin: 0;
-      font-size: 3em;
+      margin-bottom: 10px;
+      font-size: 2.8rem;
     }
     header p {
-      font-size: 1.2em;
-      margin: 10px 0;
+      font-size: 1.2rem;
+      margin: 5px 0;
     }
     section {
       padding: 40px 20px;
-      border-bottom: 1px dashed #ff4c4c;
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
     }
     h2 {
-      font-size: 1.8em;
-      color: #ff1a1a;
-      border-left: 4px solid #ff4c4c;
-      padding-left: 10px;
+      color: #0077cc;
+      font-size: 1.8rem;
+      border-bottom: 2px solid #0077cc;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
     }
     ul {
-      list-style-type: square;
-      margin-left: 20px;
+      padding-left: 20px;
     }
     a {
-      color: #ff4c4c;
+      color: #0077cc;
       text-decoration: none;
     }
     a:hover {
@@ -50,89 +50,96 @@
     }
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 20px;
     }
-    .grid-item {
-      background-color: #1a1a1a;
+    .card {
+      background: #ffffff;
+      border: 1px solid #dee2e6;
       padding: 15px;
-      border: 1px solid #ff4c4c;
       border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .contact-list li {
+      margin-bottom: 8px;
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>Raj M. Konkar</h1>
     <p>Cybersecurity Graduate | Offensive Security Enthusiast | SIEM & Threat Detection Explorer</p>
-    <p>📍 Leeds, UK | 📧 <a href="mailto:konkarraj1234@gmail.com">konkarraj1234@gmail.com</a></p>
+    <p>📍 Leeds, UK | 📧 <a href="mailto:konkarraj1234@gmail.com" style="color: #fff;">konkarraj1234@gmail.com</a></p>
   </header>
 
   <section id="about">
     <h2>About Me</h2>
-    <p>I’m an MSc Cyber Security student at the University of York (NCSC-certified program), with a passion for offensive security and blue teaming. I enjoy reverse-engineering challenges, building audit tools, and participating in CTFs to simulate real-world attack-defense scenarios. I’m actively exploring adversary emulation, system hardening, and SIEM tuning through self-built labs and writeups.</p>
+    <p>I’m currently pursuing an MSc in Cyber Security at the University of York (NCSC Certified), where I focus on offensive security, blue teaming, and ICS/OT environments. I’ve built personal labs, developed security tools, and solved real-world CTF challenges to deepen my knowledge of vulnerabilities, exploit development, and defensive security operations.</p>
+    <p>I’m passionate about system hardening, adversary emulation, and leveraging frameworks like MITRE ATT&CK to detect and prevent attacks using SIEM solutions such as Wazuh and Splunk. My background includes scripting in Python/Bash and hands-on troubleshooting of Linux/SQL environments.</p>
   </section>
 
   <section id="skills">
-    <h2>Technical Skills</h2>
+    <h2>Skills & Tools</h2>
     <div class="grid">
-      <div class="grid-item"><strong>Penetration Testing:</strong><br>Web, Linux, API, CTFs</div>
-      <div class="grid-item"><strong>Tools:</strong><br>Nmap, Burp Suite, Wireshark, Wazuh, Metasploit</div>
-      <div class="grid-item"><strong>Scripting:</strong><br>Python, Bash (automation, auditing)</div>
-      <div class="grid-item"><strong>SIEM:</strong><br>Wazuh, Splunk, threat detection tuning</div>
-      <div class="grid-item"><strong>Systems:</strong><br>Linux (Ubuntu, Kali), Windows Server</div>
-      <div class="grid-item"><strong>Frameworks:</strong><br>MITRE ATT&CK, NIST CSF</div>
-      <div class="grid-item"><strong>Soft Skills:</strong><br>Client Interaction, Report Writing</div>
+      <div class="card"><strong>Penetration Testing:</strong><br> Web, Linux, API, Logic flaws</div>
+      <div class="card"><strong>Tools:</strong><br> Nmap, Metasploit, Burp Suite, Wireshark, Wazuh, Splunk</div>
+      <div class="card"><strong>Scripting:</strong><br> Python, Bash (auditing, enumeration tools)</div>
+      <div class="card"><strong>Systems:</strong><br> Linux (Ubuntu/Kali), Windows Server, SQL environments</div>
+      <div class="card"><strong>SIEM/Defense:</strong><br> Custom Wazuh setup, brute-force simulation, log parsing</div>
+      <div class="card"><strong>Frameworks:</strong><br> MITRE ATT&CK, NIST CSF</div>
+      <div class="card"><strong>Soft Skills:</strong><br> Report writing, team collaboration, client interaction</div>
     </div>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
     <ul>
-      <li><strong>RajCyberTools:</strong> Bash scripts & recon utilities built for CTFs and internal security assessments. <a href="https://github.com/rajkonkar/RajCyberTools">GitHub →</a></li>
-      <li><strong>Linux User Audit Tool:</strong> Detects misconfigurations and risky permissions across user accounts. <a href="https://github.com/rajkonkar">GitHub →</a></li>
-      <li><strong>Wazuh SIEM Lab:</strong> Deployed and configured Wazuh on Ubuntu to simulate threats, analyze logs, and trigger real-time alerts.</li>
-      <li><strong>OT Security Lab (in-progress):</strong> ICS/SCADA simulation with OpenPLC + Node-RED to explore Modbus attacks safely.</li>
+      <li><strong>RajCyberTools:</strong> A toolkit with custom Bash scripts and recon tools used for CTFs, enumeration, and system reviews. <a href="https://github.com/rajkonkar/RajCyberTools">View on GitHub</a></li>
+      <li><strong>Linux User Audit Tool:</strong> Scans user accounts, permissions, and sudo privileges to identify risks and misconfigurations.</li>
+      <li><strong>Wazuh SIEM Lab:</strong> Configured on Ubuntu, this lab simulates brute-force attacks and malware injections to trigger real-time alerts and threat analysis.</li>
+      <li><strong>OT Security Lab (OpenPLC + Node-RED):</strong> A hands-on ICS/SCADA lab environment simulating Modbus communications and attack vectors safely.</li>
     </ul>
   </section>
 
-  <section id="writeups">
+  <section id="ctf">
     <h2>CTF Writeups</h2>
     <ul>
-      <li><strong>HackTheBox Machines:</strong> Rooted Linux/Windows boxes; focus on privilege escalation and post-exploitation tactics.</li>
-      <li><strong>TryHackMe Labs:</strong> Beginner to intermediate walkthroughs with payloads and enumeration logic.</li>
-      <li><strong>Vulnerable Apps:</strong> Tested XXE, SSRF, logic flaws in DVWA, Juice Shop, custom Flask apps.</li>
-      <li><a href="https://github.com/rajkonkar">See all writeups on GitHub →</a></li>
+      <li><strong>HackTheBox Machines:</strong> Rooted both Linux and Windows boxes; writeups show exploitation paths, privilege escalation, and post-exploitation insights.</li>
+      <li><strong>TryHackMe Labs:</strong> Completed beginner to intermediate level challenges on network exploits, enumeration, and web application flaws.</li>
+      <li><strong>Custom Web Exploits:</strong> Performed and documented attacks such as XXE, command injection, SSRF, and logic flaws in DVWA, Juice Shop, and self-hosted apps.</li>
+      <li>Writeups available on <a href="https://github.com/rajkonkar">GitHub</a>.</li>
     </ul>
   </section>
 
   <section id="experience">
     <h2>Experience</h2>
-    <p><strong>Technical Support Engineer — Karix, Mumbai</strong> (Jul 2022 – Mar 2023)</p>
+    <p><strong>Technical Support Engineer – Karix, Mumbai</strong> (Jul 2022 – Mar 2023)</p>
     <ul>
-      <li>Resolved over 200 Linux/SQL technical issues within SLAs.</li>
-      <li>Reduced downtime by 90% through proactive monitoring and alerting.</li>
-      <li>Documented troubleshooting procedures for internal use.</li>
+      <li>Resolved over 200 Linux/SQL issues in production environments under tight SLAs.</li>
+      <li>Proactively reduced system downtime by 90% through active monitoring.</li>
+      <li>Created documentation to support faster internal issue resolution.</li>
     </ul>
   </section>
 
   <section id="education">
     <h2>Education & Certifications</h2>
     <ul>
-      <li><strong>MSc Cyber Security</strong> — University of York (2023–2024) [NCSC Certified]</li>
-      <li><strong>BSc Computer Science</strong> — Thakur College, Mumbai (2019–2022), CGPA: 8.73</li>
-      <li><strong>Certifications:</strong> Ethical Hacking (Udemy), Network Security (Udemy)</li>
-      <li><em>In Progress:</em> CompTIA Security+, Google Cybersecurity Cert (Coursera)</li>
+      <li><strong>MSc Cyber Security</strong> – University of York, UK (2023–2024) [NCSC Certified]</li>
+      <li><strong>BSc Computer Science</strong> – Thakur College, Mumbai (2019–2022) | CGPA: 8.73</li>
+      <li><strong>Certifications:</strong> Complete Ethical Hacking (Udemy), Network Security Fundamentals (Udemy)</li>
+      <li><em>In Progress:</em> CompTIA Security+, Google Cybersecurity Certificate (Coursera)</li>
     </ul>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
-    <ul>
+    <ul class="contact-list">
       <li>📧 <a href="mailto:konkarraj1234@gmail.com">konkarraj1234@gmail.com</a></li>
       <li>🔗 <a href="https://www.linkedin.com/in/raj-konkar-b70b512a0">LinkedIn</a></li>
-      <li>📁 <a href="https://github.com/rajkonkar">GitHub</a></li>
+      <li>💻 <a href="https://github.com/rajkonkar">GitHub</a></li>
     </ul>
   </section>
+
 </body>
 </html>

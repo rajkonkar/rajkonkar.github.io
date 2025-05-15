@@ -156,9 +156,38 @@
     .nav-container a:hover {
       background-color: var(--accent);
     }
+    .side-icons {
+      position: fixed;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 999;
+    }
+    .side-icons a {
+      background: var(--text-dark);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      transition: background 0.3s;
+    }
+    .side-icons a:hover {
+      background: var(--accent);
+    }
 </style>
 </head>
 <body>
+
+  <div class="side-icons">
+    <a href="https://github.com/rajkonkar" target="_blank">GitHub</a>
+    <a href="resume.pdf" target="_blank">Resume</a>
+    <a href="https://www.linkedin.com/in/raj-konkar-b70b512a0" target="_blank">LinkedIn</a>
+  </div>
 
   <nav class="navbar">
     <div class="nav-container">

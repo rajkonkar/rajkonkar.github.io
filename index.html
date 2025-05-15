@@ -1,37 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Raj Konkar | Cybersecurity Portfolio</title>
   <style>
     body {
       background-color: #0d0d0d;
       color: #ff4c4c;
       font-family: 'Courier New', Courier, monospace;
-      line-height: 1.7;
       margin: 0;
       padding: 0;
     }
     header {
       text-align: center;
-      padding: 40px 20px;
+      padding: 60px 20px;
       border-bottom: 2px dashed #ff4c4c;
     }
     header h1 {
       margin: 0;
-      font-size: 2.8em;
+      font-size: 3em;
     }
     header p {
       font-size: 1.2em;
+      margin: 10px 0;
     }
     section {
       padding: 40px 20px;
       border-bottom: 1px dashed #ff4c4c;
+      max-width: 900px;
+      margin: auto;
     }
     h2 {
       font-size: 1.8em;
       color: #ff1a1a;
+      border-left: 4px solid #ff4c4c;
+      padding-left: 10px;
     }
     ul {
       list-style-type: square;
@@ -44,36 +48,81 @@
     a:hover {
       text-decoration: underline;
     }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .grid-item {
+      background-color: #1a1a1a;
+      padding: 15px;
+      border: 1px solid #ff4c4c;
+      border-radius: 8px;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>Raj Konkar</h1>
-    <p>Cybersecurity Enthusiast | CTF Player | Blue Teaming & OT Security Explorer</p>
+    <h1>Raj M. Konkar</h1>
+    <p>Cybersecurity Graduate | Offensive Security Enthusiast | SIEM & Threat Detection Explorer</p>
+    <p>📍 Leeds, UK | 📧 <a href="mailto:konkarraj1234@gmail.com">konkarraj1234@gmail.com</a></p>
   </header>
 
   <section id="about">
     <h2>About Me</h2>
-    <p>I’m a recent MSc Cybersecurity graduate from the University of York (NCSC certified). With a strong technical base and a passion for hands-on learning, I focus on penetration testing, blue teaming, OT security, and CTF competitions. I enjoy translating knowledge into tools, writeups, and labs. I’m currently exploring threat detection, adversary emulation, and building mini-labs for real-world simulations.</p>
+    <p>I’m an MSc Cyber Security student at the University of York (NCSC-certified program), with a passion for offensive security and blue teaming. I enjoy reverse-engineering challenges, building audit tools, and participating in CTFs to simulate real-world attack-defense scenarios. I’m actively exploring adversary emulation, system hardening, and SIEM tuning through self-built labs and writeups.</p>
+  </section>
+
+  <section id="skills">
+    <h2>Technical Skills</h2>
+    <div class="grid">
+      <div class="grid-item"><strong>Penetration Testing:</strong><br>Web, Linux, API, CTFs</div>
+      <div class="grid-item"><strong>Tools:</strong><br>Nmap, Burp Suite, Wireshark, Wazuh, Metasploit</div>
+      <div class="grid-item"><strong>Scripting:</strong><br>Python, Bash (automation, auditing)</div>
+      <div class="grid-item"><strong>SIEM:</strong><br>Wazuh, Splunk, threat detection tuning</div>
+      <div class="grid-item"><strong>Systems:</strong><br>Linux (Ubuntu, Kali), Windows Server</div>
+      <div class="grid-item"><strong>Frameworks:</strong><br>MITRE ATT&CK, NIST CSF</div>
+      <div class="grid-item"><strong>Soft Skills:</strong><br>Client Interaction, Report Writing</div>
+    </div>
   </section>
 
   <section id="projects">
     <h2>Projects</h2>
     <ul>
-      <li><strong>RajCyberTools:</strong> A toolkit containing custom bash scripts and recon utilities used during CTFs and internal lab assessments.</li>
-      <li><strong>Linux User Audit Tool:</strong> Automates the review of user accounts and permissions on Linux systems to quickly identify misconfigurations and privilege abuse risks.</li>
-      <li><strong>Wazuh SIEM Lab:</strong> End-to-end SIEM setup with Wazuh, simulating brute-force attacks and malware injections for real-time alert generation and threat detection.</li>
-      <li><strong>OpenPLC + Node-RED OT Lab:</strong> Ongoing project for understanding Modbus communication and designing ICS/SCADA attacks in a safe virtual environment.</li>
-      <li><a href="https://github.com/rajkonkar">More on GitHub →</a></li>
+      <li><strong>RajCyberTools:</strong> Bash scripts & recon utilities built for CTFs and internal security assessments. <a href="https://github.com/rajkonkar/RajCyberTools">GitHub →</a></li>
+      <li><strong>Linux User Audit Tool:</strong> Detects misconfigurations and risky permissions across user accounts. <a href="https://github.com/rajkonkar">GitHub →</a></li>
+      <li><strong>Wazuh SIEM Lab:</strong> Deployed and configured Wazuh on Ubuntu to simulate threats, analyze logs, and trigger real-time alerts.</li>
+      <li><strong>OT Security Lab (in-progress):</strong> ICS/SCADA simulation with OpenPLC + Node-RED to explore Modbus attacks safely.</li>
     </ul>
   </section>
 
   <section id="writeups">
     <h2>CTF Writeups</h2>
     <ul>
-      <li><strong>HackTheBox Machines:</strong> Rooted multiple machines including Linux and Windows-based targets; detailed walkthroughs highlight initial foothold, privilege escalation, and lateral movement.</li>
-      <li><strong>TryHackMe Labs:</strong> Focused on beginner-to-intermediate networks and exploit labs with explanations of enumeration strategies and payload crafting.</li>
-      <li><strong>Vulnerable Web Apps:</strong> Practice writeups targeting XXE, command injection, SSRF, and logical flaws across deliberately vulnerable apps like DVWA, Juice Shop, and custom setups.</li>
+      <li><strong>HackTheBox Machines:</strong> Rooted Linux/Windows boxes; focus on privilege escalation and post-exploitation tactics.</li>
+      <li><strong>TryHackMe Labs:</strong> Beginner to intermediate walkthroughs with payloads and enumeration logic.</li>
+      <li><strong>Vulnerable Apps:</strong> Tested XXE, SSRF, logic flaws in DVWA, Juice Shop, custom Flask apps.</li>
+      <li><a href="https://github.com/rajkonkar">See all writeups on GitHub →</a></li>
+    </ul>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <p><strong>Technical Support Engineer — Karix, Mumbai</strong> (Jul 2022 – Mar 2023)</p>
+    <ul>
+      <li>Resolved over 200 Linux/SQL technical issues within SLAs.</li>
+      <li>Reduced downtime by 90% through proactive monitoring and alerting.</li>
+      <li>Documented troubleshooting procedures for internal use.</li>
+    </ul>
+  </section>
+
+  <section id="education">
+    <h2>Education & Certifications</h2>
+    <ul>
+      <li><strong>MSc Cyber Security</strong> — University of York (2023–2024) [NCSC Certified]</li>
+      <li><strong>BSc Computer Science</strong> — Thakur College, Mumbai (2019–2022), CGPA: 8.73</li>
+      <li><strong>Certifications:</strong> Ethical Hacking (Udemy), Network Security (Udemy)</li>
+      <li><em>In Progress:</em> CompTIA Security+, Google Cybersecurity Cert (Coursera)</li>
     </ul>
   </section>
 

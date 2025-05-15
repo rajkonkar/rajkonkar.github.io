@@ -124,7 +124,80 @@
     <p>📍 Leeds, UK | 📧 <a href="mailto:konkarraj1234@gmail.com" style="color: var(--text-light);">konkarraj1234@gmail.com</a></p>
   </header>
 
-  <!-- Insert all your content sections (About, Skills, Projects, Experience, etc.) below -->
+  <section id="about" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>I’m currently pursuing an MSc in Cyber Security at the University of York (NCSC Certified), with a strong focus on offensive security, blue teaming, and ICS/OT environments. I've built personal labs, developed security tools, and written CTF writeups that simulate real-world attack scenarios.</p>
+    <p>My passion lies in threat detection, system hardening, adversary emulation, and scripting in Python and Bash. I enjoy converting theoretical frameworks like MITRE ATT&CK into hands-on lab simulations.</p>
+  </section>
+
+  <section id="skills" data-aos="fade-up">
+    <h2>Skills & Tools</h2>
+    <div class="grid">
+      <button class="card toggle">Penetration Testing<br><small>Web, Linux, API, Logic flaws</small></button>
+      <button class="card toggle">Tools<br><small>Nmap, Metasploit, Burp Suite, Wireshark, Wazuh, Splunk</small></button>
+      <button class="card toggle">Scripting<br><small>Python, Bash (auditing, enumeration tools)</small></button>
+      <button class="card toggle">Systems<br><small>Linux (Ubuntu/Kali), Windows Server, SQL environments</small></button>
+      <button class="card toggle">SIEM/Defense<br><small>Custom Wazuh setup, brute-force simulation, log parsing</small></button>
+      <button class="card toggle">Frameworks<br><small>MITRE ATT&CK, NIST CSF</small></button>
+      <button class="card toggle">Soft Skills<br><small>Report writing, team collaboration, client interaction</small></button>
+    </div>
+  </section>
+
+  <section id="projects" data-aos="fade-up">
+    <h2>Projects</h2>
+    <div class="grid">
+      <button class="card toggle" onclick="toggleDetails('proj1')"><strong>RajCyberTools</strong><br>Click to expand</button>
+      <div class="card detail" id="proj1" style="display:none;">Toolkit of custom Bash scripts and recon tools for CTFs and internal assessments. <a href="https://github.com/rajkonkar/RajCyberTools">View on GitHub</a></div>
+
+      <button class="card toggle" onclick="toggleDetails('proj2')"><strong>Linux User Audit Tool</strong><br>Click to expand</button>
+      <div class="card detail" id="proj2" style="display:none;">Scans user accounts and sudo privileges for misconfigurations. <a href="https://github.com/rajkonkar/linux-user-audit-tool">View on GitHub</a></div>
+
+      <button class="card toggle" onclick="toggleDetails('proj3')"><strong>Wazuh SIEM Lab</strong><br>Click to expand</button>
+      <div class="card detail" id="proj3" style="display:none;">Simulates brute-force and malware scenarios using Wazuh alerts. <a href="https://github.com/rajkonkar/wazuh-siem-lab">View on GitHub</a></div>
+
+      <button class="card toggle" onclick="toggleDetails('proj4')"><strong>OT Security Lab</strong><br>Click to expand</button>
+      <div class="card detail" id="proj4" style="display:none;">Simulates Modbus communication attacks in ICS/SCADA using OpenPLC and Node-RED.</div>
+    </div>
+  </section>
+
+  <section id="ctf" data-aos="fade-up">
+    <h2>CTF Writeups</h2>
+    <ul>
+      <li><strong>HackTheBox Machines:</strong> Rooted both Linux and Windows boxes; writeups show exploitation paths, privilege escalation, and post-exploitation insights.</li>
+      <li><strong>TryHackMe Labs:</strong> Completed beginner to intermediate challenges focused on enumeration, privilege escalation, and network attacks.</li>
+      <li><strong>Custom Web Exploits:</strong> Writeups covering XXE, command injection, SSRF, logic flaws in DVWA, Juice Shop, and custom labs.</li>
+    </ul>
+  </section>
+
+  <section id="experience" data-aos="fade-up">
+    <h2>Experience</h2>
+    <p><strong>Technical Support Engineer – Karix, Mumbai</strong> (Jul 2022 – Mar 2023)</p>
+    <ul>
+      <li>Resolved 200+ critical Linux and SQL production issues with 98% SLA adherence.</li>
+      <li>Reduced system downtime by 90% through proactive monitoring and alert optimization.</li>
+      <li>Created 15+ internal documentation pieces, improving mean time to resolution by 40%.</li>
+      <li>Worked closely with dev and QA to deliver permanent fixes and reduce ticket volume.</li>
+    </ul>
+  </section>
+
+  <section id="education" data-aos="fade-up">
+    <h2>Education & Certifications</h2>
+    <ul>
+      <li><strong>MSc Cyber Security</strong> – University of York, UK (2023–2024) [NCSC Certified]</li>
+      <li><strong>BSc Computer Science</strong> – Thakur College, Mumbai (2019–2022) | CGPA: 8.73</li>
+      <li><strong>Certifications:</strong> Ethical Hacking (Udemy), Network Security Fundamentals (Udemy)</li>
+      <li><em>In Progress:</em> CompTIA Security+, Google Cybersecurity Certificate (Coursera)</li>
+    </ul>
+  </section>
+
+  <section id="contact" data-aos="fade-up">
+    <h2>Contact</h2>
+    <ul class="contact-list">
+      <li>📧 <a href="mailto:konkarraj1234@gmail.com">konkarraj1234@gmail.com</a></li>
+      <li>🔗 <a href="https://www.linkedin.com/in/raj-konkar-b70b512a0">LinkedIn</a></li>
+      <li>💻 <a href="https://github.com/rajkonkar">GitHub</a></li>
+    </ul>
+  </section>
 
   <script>
     AOS.init();

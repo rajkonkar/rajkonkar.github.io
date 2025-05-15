@@ -1,75 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Raj Konkar - Cybersecurity Portfolio">
   <title>Raj Konkar | Cybersecurity Portfolio</title>
   <style>
     body {
       margin: 0;
-      background-color: #0d0d0d;
-      color: #00ffcc;
       font-family: 'Courier New', monospace;
+      background-color: #0e0e0e;
+      color: #f1f1f1;
     }
     header {
-      background: #111;
-      padding: 1rem;
+      background-color: #111;
+      padding: 20px;
       text-align: center;
-      border-bottom: 2px solid #00ffcc;
+      border-bottom: 2px solid #0f0;
     }
-    h1, h2 {
-      margin: 0.5rem 0;
+    header h1 {
+      margin: 0;
+      color: #00ff00;
+      font-size: 2.5em;
     }
-    .section {
-      padding: 2rem;
-      border-bottom: 1px dashed #00ffcc;
+    nav {
+      text-align: center;
+      margin-top: 10px;
     }
-    a {
-      color: #00ffee;
+    nav a {
+      color: #0f0;
       text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
     }
-    .projects pre {
-      background: #1a1a1a;
-      padding: 1rem;
-      overflow: auto;
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: auto;
     }
-    .contact a {
-      display: block;
-      margin: 0.5rem 0;
+    section h2 {
+      color: #00ff99;
+      border-bottom: 1px solid #00ff99;
+      padding-bottom: 10px;
+    }
+    .project, .skill {
+      background-color: #1a1a1a;
+      padding: 20px;
+      margin: 15px 0;
+      border-left: 4px solid #0f0;
+    }
+    a.button {
+      display: inline-block;
+      background-color: #00ff99;
+      color: #000;
+      padding: 10px 20px;
+      margin-top: 10px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #111;
+      border-top: 1px solid #333;
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Raj Konkar</h1>
-    <p>Cybersecurity Enthusiast | CTF Player | Tool Builder</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <div class="section about">
+  <section id="about">
     <h2>About Me</h2>
-    <p>I'm a recent MSc Cybersecurity graduate from the University of York, diving deep into penetration testing, blue teaming, and OT security. I work on practical labs, participate in HTB CTFs, and build tools to reinforce my learning. This is my place to showcase projects, challenges, and progress.</p>
-  </div>
+    <p>
+      I’m a cybersecurity enthusiast and recent MSc graduate from the University of York, where I studied in a UK NCSC-certified program. I actively solve Hack The Box machines, document CTF writeups, and have recently started exploring OT security. I’m passionate about learning offensive techniques, penetration testing, and building real-world projects that challenge and grow my skills.
+    </p>
+  </section>
 
-  <div class="section projects">
+  <section id="projects">
     <h2>Projects</h2>
-    <ul>
-      <li><a href="https://github.com/rajkonkar/RajCyberTools" target="_blank">RajCyberTools</a> – Custom scripts and recon tools</li>
-      <li><a href="https://github.com/rajkonkar/Linux-User-Audit-Tool" target="_blank">Linux User Audit Tool</a> – Bash-based user and permission audit tool</li>
-      <li><a href="https://github.com/rajkonkar/Wazuh-SIEM-Lab" target="_blank">Wazuh SIEM Lab</a> – Real-time detection lab with brute-force/malware simulation</li>
-      <li><a href="https://github.com/rajkonkar" target="_blank">More on GitHub →</a></li>
-    </ul>
-  </div>
 
-  <div class="section ctf">
-    <h2>CTF Writeups</h2>
-    <p>HTB machines, vulnerable labs, and exploit walkthroughs coming soon.</p>
-  </div>
+    <div class="project">
+      <h3>CTF Exploit Writeups</h3>
+      <p>Writeups for multiple exploitation scenarios including XXE, command injection, and logic flaws.</p>
+      <a href="https://github.com/rajkonkar/CTF-Writeups" class="button" target="_blank">View on GitHub</a>
+    </div>
 
-  <div class="section contact">
+    <div class="project">
+      <h3>OT Security Lab - Node-RED & Modbus</h3>
+      <p>Custom industrial control simulation using Node-RED and OpenPLC, with live Modbus monitoring and UI control.</p>
+      <a href="https://github.com/rajkonkar/OT-Security-Lab" class="button" target="_blank">View Project</a>
+    </div>
+
+    <div class="project">
+      <h3>Hack The Box Progress</h3>
+      <p>Tracking and documenting machine solves, vulnerabilities discovered, and tools used.</p>
+      <a href="https://github.com/rajkonkar/hackthebox-writeups" class="button" target="_blank">View Repo</a>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skill">
+      <strong>Penetration Testing:</strong> Web, API, Logic Flaws, Injection, Linux PrivEsc
+    </div>
+    <div class="skill">
+      <strong>CTF & Labs:</strong> Hack The Box, TryHackMe, OWASP Top 10
+    </div>
+    <div class="skill">
+      <strong>Tools:</strong> Burp Suite, Nmap, Wireshark, Metasploit, Node-RED, OpenPLC
+    </div>
+    <div class="skill">
+      <strong>Languages:</strong> Python, Bash, SQL
+    </div>
+    <div class="skill">
+      <strong>Certifications:</strong> Level 2 Food Safety & Hygiene (for part-time chef experience), currently preparing for Security+ and OSCP.
+    </div>
+  </section>
+
+  <section id="contact">
     <h2>Contact</h2>
-    <a href="mailto:konkarraj1234@gmail.com">📧 konkarraj1234@gmail.com</a>
-    <a href="https://www.linkedin.com/in/raj-konkar-b70b512a0" target="_blank">🔗 LinkedIn</a>
-    <a href="https://github.com/rajkonkar" target="_blank">💻 GitHub</a>
-  </div>
+    <p>You can find me and my work here:</p>
+    <ul>
+      <li><a href="https://github.com/rajkonkar" target="_blank">GitHub: @rajkonkar</a></li>
+      <li><a href="https://www.linkedin.com/in/raj-konkar-b70b512a0" target="_blank">LinkedIn</a></li>
+      <li>Email: konkarraj1234@gmail.com</li>
+    </ul>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Raj Konkar. All rights reserved.</p>
+  </footer>
 </body>
 </html>

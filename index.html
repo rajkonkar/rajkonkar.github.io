@@ -174,6 +174,9 @@
     <h1>Raj M. Konkar</h1>
     <p>Cybersecurity Graduate | Offensive Security Enthusiast | SIEM & Threat Detection Explorer</p>
     <p>📍 Leeds, UK | 📧 <a href="mailto:konkarraj1234@gmail.com" style="color: var(--text-light);">konkarraj1234@gmail.com</a></p>
+    <p style="margin-top: 12px; font-size: 1rem; color: var(--text-light);">
+      Passionate about bridging offensive tactics and defensive insights. Always hands-on — from scripting custom tools to deploying real-world SIEM setups and simulating adversary emulation in custom-built labs.
+    </p>
   </header>
 
   <nav class="navbar">
@@ -191,11 +194,26 @@
     </div>
   </nav>
 
-  <section id="about" data-aos="fade-up">
+  <section id="about" data-aos="fade-up" style="text-align: justify;">
     <h2>About Me</h2>
-    <p>I'm <strong>Raj M. Konkar</strong>, a cybersecurity practitioner currently pursuing an MSc in Cyber Security at the University of York.</p>
-    <p>With a foundation in Linux and SQL from infrastructure support, I pivoted to offensive security with a focus on penetration testing, Active Directory exploitation, and red teaming. I build labs to simulate enterprise networks, document findings on GitHub, and share insights through tools and writeups.</p>
-    <p>I also explore OT/ICS security using OpenPLC and Node-RED to simulate Modbus attacks. I work with SIEM tools like Wazuh to understand log analysis and detection mechanisms, writing Python and Bash scripts to automate audits and enumeration.</p>
+    <p>
+      I'm <strong>Raj M. Konkar</strong> — a cybersecurity practitioner currently pursuing an MSc in Cyber Security at the University of York, an NCSC-certified program recognized for its academic rigor and real-world relevance.
+    </p>
+    <p>
+      With a background in Computer Science and experience in technical support, I've built a strong foundation in <strong>Linux systems</strong>, <strong>SQL environments</strong>, and <strong>infrastructure monitoring</strong>. This technical base helped me transition into the world of <strong>offensive security</strong>.
+    </p>
+    <p>
+      I focus on <strong>penetration testing</strong>, <strong>Active Directory exploitation</strong>, and <strong>red teaming</strong>. I create custom labs to simulate enterprise networks, practice adversary emulation, and document findings through public <a href="https://github.com/rajkonkar" target="_blank">GitHub repositories</a> and writeups.
+    </p>
+    <p>
+      I also explore <strong>OT/ICS security</strong> by building hands-on labs with <strong>OpenPLC</strong> and <strong>Node-RED</strong> to replicate Modbus-based ICS/SCADA attack scenarios.
+    </p>
+    <p>
+      On the blue team side, I deploy and tune <strong>SIEM tools</strong> like Wazuh to simulate brute-force and malware attacks, analyze logs, and enhance detection capabilities. I write <strong>Python</strong> and <strong>Bash</strong> scripts to automate enumeration, auditing, and system hardening.
+    </p>
+    <p>
+      I thrive in collaborative environments and value continuous learning through real-world challenges such as <strong>bug bounty programs</strong>, <strong>CTFs</strong>, and open-source contributions. I'm actively seeking a role in offensive or defensive security where I can solve meaningful problems and grow with a forward-thinking team.
+    </p>
   </section>
 
   <section id="skills" data-aos="fade-up">
@@ -297,11 +315,9 @@
     });
 
     function toggleDetails(id) {
-      const allDetails = document.querySelectorAll('.detail');
-      allDetails.forEach(detail => {
-        if (detail.id === id) {
-          detail.classList.toggle('show');
-        } else {
+  const detail = document.getElementById(id);
+  detail.classList.toggle('show');
+} else {
           detail.classList.remove('show');
         }
       });

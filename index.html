@@ -226,47 +226,47 @@
   </p>
 </section>
 
-<section id="skills" data-aos="fade-up">
+section id="skills" data-aos="fade-up">
   <h2>Skills & Tools</h2>
   <div class="grid">
     <div class="card">
-      <button class="toggle" onclick="toggleDetails('skill1')" style="background-color: #3b82f6; color: white;">Penetration Testing</button>
+      <button class="toggle" onclick="toggleDetails('skill1')" style="background-color: #3b82f6; color: white; transition: all 0.3s;"><span>🛠️</span> Penetration Testing</button>
       <div class="detail" id="skill1" style="display:none;">
         Web, Linux, API testing, logic flaws, post-exploitation.
       </div>
     </div>
     <div class="card">
-      <button class="toggle" onclick="toggleDetails('skill2')" style="background-color: #3b82f6; color: white;">Tools</button>
+      <button class="toggle" onclick="toggleDetails('skill2')" style="background-color: #3b82f6; color: white; transition: all 0.3s;"><span>🧰</span> Tools</button>
       <div class="detail" id="skill2" style="display:none;">
         Nmap, Metasploit, Burp Suite, Wireshark, Wazuh, Splunk.
       </div>
     </div>
     <div class="card">
-      <button class="toggle" onclick="toggleDetails('skill3')" style="background-color: #3b82f6; color: white;">Scripting</button>
+      <button class="toggle" onclick="toggleDetails('skill3')" style="background-color: #3b82f6; color: white; transition: all 0.3s;"><span>💻</span> Scripting</button>
       <div class="detail" id="skill3" style="display:none;">
         Python, Bash — used for automation, enumeration, and audits.
       </div>
     </div>
     <div class="card">
-      <button class="toggle" onclick="toggleDetails('skill4')" style="background-color: #3b82f6; color: white;">Systems</button>
+      <button class="toggle" onclick="toggleDetails('skill4')" style="background-color: #3b82f6; color: white; transition: all 0.3s;"><span>🖥️</span> Systems</button>
       <div class="detail" id="skill4" style="display:none;">
         Linux (Ubuntu/Kali), Windows Server, SQL environments.
       </div>
     </div>
     <div class="card">
-      <button class="toggle" onclick="toggleDetails('skill5')" style="background-color: #3b82f6; color: white;">SIEM & Defense</button>
+      <button class="toggle" onclick="toggleDetails('skill5')" style="background-color: #3b82f6; color: white; transition: all 0.3s;"><span>🔐</span> SIEM & Defense</button>
       <div class="detail" id="skill5" style="display:none;">
         Custom Wazuh deployment, log monitoring, brute-force detection.
       </div>
     </div>
     <div class="card">
-      <button class="toggle" onclick="toggleDetails('skill6')" style="background-color: #3b82f6; color: white;">Frameworks</button>
+      <button class="toggle" onclick="toggleDetails('skill6')" style="background-color: #3b82f6; color: white; transition: all 0.3s;"><span>📚</span> Frameworks</button>
       <div class="detail" id="skill6" style="display:none;">
         MITRE ATT&CK, NIST CSF.
       </div>
     </div>
     <div class="card">
-      <button class="toggle" onclick="toggleDetails('skill7')" style="background-color: #3b82f6; color: white;">Soft Skills</button>
+      <button class="toggle" onclick="toggleDetails('skill7')" style="background-color: #3b82f6; color: white; transition: all 0.3s;"><span>🗣️</span> Soft Skills</button>
       <div class="detail" id="skill7" style="display:none;">
         Report writing, team collaboration, client interaction.
       </div>
@@ -278,34 +278,42 @@
   <h2>Projects</h2>
   <div class="grid">
     <div class="card">
-      <button class="toggle" onclick="toggleDetails('proj1')" style="background-color: #3b82f6; color: white;">RajCyberTools</button>
+      <button class="toggle" onclick="toggleDetails('proj1')" style="background-color: #3b82f6; color: white; transition: all 0.3s;"><span>📁</span> RajCyberTools</button>
       <div class="detail" id="proj1" style="display:none;">
         Toolkit of custom Bash scripts and recon tools for CTFs and assessments.<br>
         <a href="https://github.com/rajkonkar/RajCyberTools" target="_blank">View on GitHub</a>
       </div>
     </div>
     <div class="card">
-      <button class="toggle" onclick="toggleDetails('proj2')" style="background-color: #3b82f6; color: white;">Linux User Audit Tool</button>
+      <button class="toggle" onclick="toggleDetails('proj2')" style="background-color: #3b82f6; color: white; transition: all 0.3s;"><span>📁</span> Linux User Audit Tool</button>
       <div class="detail" id="proj2" style="display:none;">
         Scans user accounts and sudo privileges for misconfigurations.<br>
         <a href="https://github.com/rajkonkar/linux-user-audit-tool" target="_blank">View on GitHub</a>
       </div>
     </div>
     <div class="card">
-      <button class="toggle" onclick="toggleDetails('proj3')" style="background-color: #3b82f6; color: white;">Wazuh SIEM Lab</button>
+      <button class="toggle" onclick="toggleDetails('proj3')" style="background-color: #3b82f6; color: white; transition: all 0.3s;"><span>📁</span> Wazuh SIEM Lab</button>
       <div class="detail" id="proj3" style="display:none;">
         Simulates brute-force and malware detection using Wazuh rules.<br>
         <a href="https://github.com/rajkonkar/wazuh-siem-lab" target="_blank">View on GitHub</a>
       </div>
     </div>
     <div class="card">
-      <button class="toggle" onclick="toggleDetails('proj4')" style="background-color: #3b82f6; color: white;">OT Security Lab</button>
+      <button class="toggle" onclick="toggleDetails('proj4')" style="background-color: #3b82f6; color: white; transition: all 0.3s;"><span>📁</span> OT Security Lab</button>
       <div class="detail" id="proj4" style="display:none;">
         ICS/SCADA Modbus attacks with OpenPLC and Node-RED.
       </div>
     </div>
   </div>
 </section>
+
+<script>
+  function toggleDetails(id) {
+    const el = document.getElementById(id);
+    el.style.display = (el.style.display === "none") ? "block" : "none";
+    el.style.transition = "all 0.3s ease-in-out";
+  }
+</script>
   
 <section id="ctf" data-aos="fade-up">
   <h2>CTF Writeups</h2>

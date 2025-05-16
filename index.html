@@ -30,6 +30,9 @@
       color: var(--text-dark);
       scroll-behavior: smooth;
     }
+    html {
+  scroll-padding-top: 100px;
+}
     header.hero {
       background-color: var(--text-dark);
       color: var(--text-light);
@@ -179,6 +182,7 @@
     .side-icons a:hover {
       background: var(--accent);
     }
+
 </style>
 </head>
 <body>
@@ -204,16 +208,16 @@
     <p>📍 Leeds, UK | 📧 <a href="mailto:konkarraj1234@gmail.com" style="color: var(--text-light);">konkarraj1234@gmail.com</a></p>
   </header>
 
-<section id="about" data-aos="fade-up" style="text-align: justify;">
+<section id="about" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-out-cubic">
   <h2>About Me</h2>
   <p>
-    I'm <strong>Raj M. Konkar</strong> — a cybersecurity practitioner currently pursuing an MSc in Cyber Security at the University of York, an NCSC-certified program known for its technical depth and industry alignment.
+    I'm <strong>Raj M. Konkar</strong>  a cybersecurity practitioner currently pursuing an MSc in Cyber Security at the University of York, an NCSC-certified program known for its technical depth and industry alignment.
   </p>
   <p>
     With a foundation in <strong>Linux</strong> and <strong>SQL</strong> from my time in infrastructure support, I've pivoted into offensive security with a focus on <strong>penetration testing</strong>, <strong>Active Directory exploitation</strong>, and <strong>red teaming</strong>. I design custom labs that simulate enterprise networks to practice adversary emulation and document my findings through <a href="writeups.html" target="_blank">writeups</a> and tools on GitHub.
   </p>
   <p>
-    I also explore <strong>OT/ICS security</strong> with a hands-on approach — building environments using <strong>OpenPLC</strong> and <strong>Node-RED</strong> to simulate Modbus attacks and assess ICS/SCADA vulnerabilities in lab settings.
+    I also explore <strong>OT/ICS security</strong> with a hands-on approach building environments using <strong>OpenPLC</strong> and <strong>Node-RED</strong> to simulate Modbus attacks and assess ICS/SCADA vulnerabilities in lab settings.
   </p>
   <p>
     On the blue side, I deploy SIEM tools like <strong>Wazuh</strong> and simulate threats such as brute-force attacks to understand log analysis and detection mechanisms. I write <strong>Python</strong> and <strong>Bash</strong> scripts to automate audits, enumeration, and hardening.
@@ -226,7 +230,7 @@
   </p>
 </section>
 
-<section id="skills" data-aos="fade-up">
+<section id="skills" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-out-cubic">
   <h2>Skills & Tools</h2>
   <div class="grid">
     <div class="card">
@@ -274,7 +278,7 @@
   </div>
 </section>
 
-<section id="projects" data-aos="fade-up">
+<section id="projects" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-out-cubic">
   <h2>Projects</h2>
   <div class="grid">
     <div class="card">
@@ -308,7 +312,7 @@
 </section>
 
   
-<section id="ctf" data-aos="fade-up">
+<section id="ctf" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-out-cubic">
   <h2>CTF Writeups</h2>
   <p>I regularly participate in CTF challenges and publish detailed walkthroughs based on real-world attack simulations. These writeups focus on web exploits, privilege escalation, and logic flaws. You can explore them in detail below:</p>
   <p style="margin-top: 20px;">
@@ -317,7 +321,7 @@
 
 </section>
 
-<section id="experience" data-aos="fade-up">
+<section id="experience" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-out-cubic">
   <h2>Experience</h2>
   <p><strong>Technical Support Engineer – Karix, Mumbai</strong> (Jul 2022 – Mar 2023)</p>
   <ul>
@@ -328,7 +332,7 @@
   </ul>
 </section>
 
-<section id="education" data-aos="fade-up">
+<section id="education" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-out-cubic">
   <h2>Education & Certifications</h2>
   <ul>
     <li><strong>MSc Cyber Security</strong> – University of York, UK (2023–2024) [NCSC Certified]</li>
@@ -338,7 +342,7 @@
   </ul>
 </section>
 
-<section id="contact" data-aos="fade-up">
+<section id="contact" data-aos="fade-up" data-aos-duration="700" data-aos-easing="ease-out-cubic">
   <h2>Contact</h2>
   <ul class="contact-list">
     <li>📧 <a href="mailto:konkarraj1234@gmail.com">konkarraj1234@gmail.com</a></li>
@@ -348,12 +352,18 @@
 </section>
 
   <script>
-    AOS.init();
+  AOS.init({
+    duration: 700,
+    easing: 'ease-out-cubic',
+    once: true
+  });
 
-    function toggleDetails(id) {
-      const el = document.getElementById(id);
-      el.style.display = el.style.display === "none" ? "block" : "none";
-    }
-  </script>
+  function toggleDetails(id) {
+    const el = document.getElementById(id);
+    el.style.display = el.style.display === "none" ? "block" : "none";
+    el.style.transition = "all 0.3s ease-in-out";
+  }
+</script>
+
 </body>
 </html>

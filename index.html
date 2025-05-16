@@ -204,63 +204,109 @@
     <p>📍 Leeds, UK | 📧 <a href="mailto:konkarraj1234@gmail.com" style="color: var(--text-light);">konkarraj1234@gmail.com</a></p>
   </header>
 
-  <section id="about" data-aos="fade-up">
+<section id="about" data-aos="fade-up">
   <h2>About Me</h2>
   <p>
-    I'm Raj M. Konkar,  a passionate cybersecurity practitioner currently pursuing an MSc in Cyber Security at the University of York, an NCSC-certified program recognized for its academic rigor and real-world relevance. With a background in Computer Science and hands-on experience in technical support, I've developed a solid foundation in Linux systems, SQL environments, and infrastructure monitoring, and transformed that foundation into a launchpad for my offensive security career.
+    I'm Raj M. Konkar — a cybersecurity practitioner currently pursuing an MSc in Cyber Security at the University of York, an NCSC-certified program known for its technical depth and industry alignment.
   </p>
-
   <p>
-    My core interests lie in <strong>penetration testing</strong>, <strong>Active Directory exploitation</strong>, and <strong>adversary emulation</strong>. I actively build and maintain my own labs to replicate enterprise environments, simulating attacks across Windows domains and Linux systems to study privilege escalation, misconfigurations, and post-exploitation tactics. These exercises aren’t just for learning. I document them through detailed CTF-style writeups and tool development that I publish on GitHub, aiming to share with and contribute to the broader security community.
+    With a foundation in Linux and SQL from my time in infrastructure support, I've pivoted into offensive security with a focus on <strong>penetration testing</strong>, <strong>Active Directory exploitation</strong>, and <strong>red teaming</strong>. I design custom labs that simulate enterprise networks to practice adversary emulation and document my findings through <a href=\"writeups.html\" target=\"_blank\">writeups</a> and tools on GitHub.
   </p>
-
   <p>
-    I'm also highly focused on <strong>OT/ICS security</strong>. I’ve begun building hands-on labs using <strong>OpenPLC</strong> and <strong>Node-RED</strong> to understand the nuances of Modbus communication and emulate real-world ICS/SCADA attack scenarios in a controlled environment. My goal is to become proficient at identifying unique vulnerabilities in industrial systems and proposing practical defense mechanisms.
+    I also explore <strong>OT/ICS security</strong> with a hands-on approach — building environments using <strong>OpenPLC</strong> and <strong>Node-RED</strong> to simulate Modbus attacks and assess ICS/SCADA vulnerabilities in lab settings.
   </p>
-
   <p>
-    I'm a strong believer in continuous learning through practical application,  which is why I’m currently exploring <strong>bug bounty platforms</strong> to test my skills in real-world applications, deepen my understanding of web vulnerabilities like XXE, SSRF, and command injection, and contribute responsibly to security disclosures. These experiences help me bridge the gap between theory and practice, and constantly sharpen my offensive mindset.
+    On the blue side, I deploy SIEM tools like <strong>Wazuh</strong> and simulate threats such as brute-force attacks to understand log analysis and detection mechanisms. I write <strong>Python</strong> and <strong>Bash</strong> scripts to automate audits, enumeration, and hardening.
   </p>
-
   <p>
-    From writing Python and Bash scripts to automate audits and reconnaissance, to deploying SIEM solutions like <strong>Wazuh</strong> for log analysis and threat detection, I enjoy operating across the attack and defense spectrum. I thrive when I'm solving complex problems, documenting my approach, and collaborating with others who share a passion for cybersecurity.
+    I’m curious, collaborative, and always hands-on — whether it’s hunting misconfigurations, building labs, contributing to GitHub, or improving my skills through real-world scenarios like CTFs and bug bounty platforms.
   </p>
-
   <p>
-    I’m actively seeking opportunities where I can apply my skills in red teaming, blue teaming, and OT security, while continuing to learn and grow in a professional setting. If you’re building a security team that values curiosity, integrity, and hands-on skill, I’d love to connect.
+    I'm currently seeking opportunities in offensive or defensive security roles where I can keep learning, contribute actively, and solve meaningful security problems.
   </p>
 </section>
 
 <section id="skills" data-aos="fade-up">
   <h2>Skills & Tools</h2>
   <div class="grid">
-    <button class="card toggle">Penetration Testing<br><small>Web, Linux, API, Logic flaws</small></button>
-    <button class="card toggle">Tools<br><small>Nmap, Metasploit, Burp Suite, Wireshark, Wazuh, Splunk</small></button>
-    <button class="card toggle">Scripting<br><small>Python, Bash (auditing, enumeration tools)</small></button>
-    <button class="card toggle">Systems<br><small>Linux (Ubuntu/Kali), Windows Server, SQL environments</small></button>
-    <button class="card toggle">SIEM/Defense<br><small>Custom Wazuh setup, brute-force simulation, log parsing</small></button>
-    <button class="card toggle">Frameworks<br><small>MITRE ATT&CK, NIST CSF</small></button>
-    <button class="card toggle">Soft Skills<br><small>Report writing, team collaboration, client interaction</small></button>
+    <div class="card">
+      <button class="toggle" onclick="toggleDetails('skill1')">Penetration Testing</button>
+      <div class="detail" id="skill1" style="display:none;">
+        Web, Linux, API testing, logic flaws, post-exploitation.
+      </div>
+    </div>
+    <div class="card">
+      <button class="toggle" onclick="toggleDetails('skill2')">Tools</button>
+      <div class="detail" id="skill2" style="display:none;">
+        Nmap, Metasploit, Burp Suite, Wireshark, Wazuh, Splunk.
+      </div>
+    </div>
+    <div class="card">
+      <button class="toggle" onclick="toggleDetails('skill3')">Scripting</button>
+      <div class="detail" id="skill3" style="display:none;">
+        Python, Bash — used for automation, enumeration, and audits.
+      </div>
+    </div>
+    <div class="card">
+      <button class="toggle" onclick="toggleDetails('skill4')">Systems</button>
+      <div class="detail" id="skill4" style="display:none;">
+        Linux (Ubuntu/Kali), Windows Server, SQL environments.
+      </div>
+    </div>
+    <div class="card">
+      <button class="toggle" onclick="toggleDetails('skill5')">SIEM & Defense</button>
+      <div class="detail" id="skill5" style="display:none;">
+        Custom Wazuh deployment, log monitoring, brute-force detection.
+      </div>
+    </div>
+    <div class="card">
+      <button class="toggle" onclick="toggleDetails('skill6')">Frameworks</button>
+      <div class="detail" id="skill6" style="display:none;">
+        MITRE ATT&CK, NIST CSF.
+      </div>
+    </div>
+    <div class="card">
+      <button class="toggle" onclick="toggleDetails('skill7')">Soft Skills</button>
+      <div class="detail" id="skill7" style="display:none;">
+        Report writing, team collaboration, client interaction.
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="projects" data-aos="fade-up">
   <h2>Projects</h2>
   <div class="grid">
-    <button class="card toggle" onclick="toggleDetails('proj1')"><strong>RajCyberTools</strong><br>Click to expand</button>
-    <div class="card detail" id="proj1" style="display:none;">Toolkit of custom Bash scripts and recon tools for CTFs and internal assessments. <a href="https://github.com/rajkonkar/RajCyberTools">View on GitHub</a></div>
-
-    <button class="card toggle" onclick="toggleDetails('proj2')"><strong>Linux User Audit Tool</strong><br>Click to expand</button>
-    <div class="card detail" id="proj2" style="display:none;">Scans user accounts and sudo privileges for misconfigurations. <a href="https://github.com/rajkonkar/linux-user-audit-tool">View on GitHub</a></div>
-
-    <button class="card toggle" onclick="toggleDetails('proj3')"><strong>Wazuh SIEM Lab</strong><br>Click to expand</button>
-    <div class="card detail" id="proj3" style="display:none;">Simulates brute-force and malware scenarios using Wazuh alerts. <a href="https://github.com/rajkonkar/wazuh-siem-lab">View on GitHub</a></div>
-
-    <button class="card toggle" onclick="toggleDetails('proj4')"><strong>OT Security Lab</strong><br>Click to expand</button>
-    <div class="card detail" id="proj4" style="display:none;">Simulates Modbus communication attacks in ICS/SCADA using OpenPLC and Node-RED.</div>
+    <div class="card">
+      <button class="toggle" onclick="toggleDetails('proj1')">RajCyberTools</button>
+      <div class="detail" id="proj1" style="display:none;">
+        Toolkit of custom Bash scripts and recon tools for CTFs and assessments.
+        <br><a href="https://github.com/rajkonkar/RajCyberTools" target="_blank">View on GitHub</a>
+      </div>
+    </div>
+    <div class="card">
+      <button class="toggle" onclick="toggleDetails('proj2')">Linux User Audit Tool</button>
+      <div class="detail" id="proj2" style="display:none;">
+        Scans user accounts and sudo privileges for misconfigurations.
+        <br><a href="https://github.com/rajkonkar/linux-user-audit-tool" target="_blank">View on GitHub</a>
+      </div>
+    </div>
+    <div class="card">
+      <button class="toggle" onclick="toggleDetails('proj3')">Wazuh SIEM Lab</button>
+      <div class="detail" id="proj3" style="display:none;">
+        Simulates brute-force and malware detection using Wazuh rules.
+        <br><a href="https://github.com/rajkonkar/wazuh-siem-lab" target="_blank">View on GitHub</a>
+      </div>
+    </div>
+    <div class="card">
+      <button class="toggle" onclick="toggleDetails('proj4')">OT Security Lab</button>
+      <div class="detail" id="proj4" style="display:none;">
+        ICS/SCADA Modbus attacks with OpenPLC and Node-RED.
+      </div>
+    </div>
   </div>
 </section>
-
+  
 <section id="ctf" data-aos="fade-up">
   <h2>CTF Writeups</h2>
   <p>I regularly participate in CTF challenges and publish detailed walkthroughs based on real-world attack simulations. These writeups focus on web exploits, privilege escalation, and logic flaws. You can explore them in detail below:</p>

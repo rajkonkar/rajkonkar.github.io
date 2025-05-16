@@ -308,20 +308,16 @@
   </section>
 
   <script>
-    AOS.init({
-      duration: 700,
-      easing: 'ease-out-cubic',
-      once: true
-    });
+  AOS.init({
+    duration: 700,
+    easing: 'ease-out-cubic',
+    once: true
+  });
 
-    function toggleDetails(id) {
-  const detail = document.getElementById(id);
-  detail.classList.toggle('show');
-} else {
-          detail.classList.remove('show');
-        }
-      });
-    }
-  </script>
+  function toggleDetails(id) {
+    const detail = document.getElementById(id);
+    detail.classList.toggle('show');
+  }
+</script>
 </body>
 </html>

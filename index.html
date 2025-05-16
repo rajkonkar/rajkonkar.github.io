@@ -1,3 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Raj Konkar | Cybersecurity Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <style>
+    :root {
+      --main-bg: #f5f7fa;
+      --accent: #3b82f6;
+      --accent-dark: #2563eb;
+      --text-dark: #0f172a;
+      --text-light: #ffffff;
+      --card-bg: #ffffff;
+      --hover-bg: #e0f2fe;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-padding-top: 100px;
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--main-bg);
+      color: var(--text-dark);
+    }
+    header.hero {
+      background-color: var(--text-dark);
+      color: var(--text-light);
+      text-align: center;
+      padding: 80px 20px;
+      border-bottom: 4px solid var(--accent);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    header.hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-light);
+    }
+    header.hero p {
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin: 6px 0;
+    }
+    .navbar {
+      background-color: var(--text-dark);
+      padding: 10px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+    .nav-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .nav-container a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+    .nav-container a:hover {
+      background-color: var(--accent);
+    }
+    section {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: var(--text-dark);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 2px solid #cbd5e1;
+      border-left: 6px solid var(--accent);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      background: var(--hover-bg);
+      border-left-color: var(--accent-dark);
+      transform: scale(1.02);
+    }
+    .toggle {
+      background-color: var(--accent);
+      color: white;
+      font-weight: 600;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 20px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+      transition: background-color 0.3s, transform 0.2s ease;
+    }
+    .toggle:hover {
+      background-color: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+    .detail {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      background-color: #f1f5f9;
+      border-left: 4px solid var(--accent);
+      margin-top: 10px;
+      padding: 0 15px;
+      border-radius: 8px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
+    }
+    .detail.show {
+      max-height: 500px;
+      opacity: 1;
+      padding: 10px 15px;
+    }
+    .btn {
+      background-color: var(--accent);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .btn:hover {
+      background-color: var(--accent-dark);
+    }
+    ul.contact-list li a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    ul.contact-list li a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
 <body>
   <header class="hero">
     <h1>Raj M. Konkar</h1>
@@ -23,8 +194,8 @@
   <section id="about" data-aos="fade-up">
     <h2>About Me</h2>
     <p>I'm <strong>Raj M. Konkar</strong>, a cybersecurity practitioner currently pursuing an MSc in Cyber Security at the University of York.</p>
-    <p>I have a foundation in Linux and SQL and have pivoted into offensive security, with a strong interest in penetration testing, Active Directory exploitation, and red teaming. I simulate enterprise environments to practice real-world attack scenarios and share my work through tools and writeups on GitHub.</p>
-    <p>I'm also exploring OT/ICS security using OpenPLC and Node-RED, and I enjoy working with SIEM tools like Wazuh to simulate brute-force attacks and conduct log analysis. I write scripts in Python and Bash to automate audits and enumeration.</p>
+    <p>With a foundation in Linux and SQL from infrastructure support, I pivoted to offensive security with a focus on penetration testing, Active Directory exploitation, and red teaming. I build labs to simulate enterprise networks, document findings on GitHub, and share insights through tools and writeups.</p>
+    <p>I also explore OT/ICS security using OpenPLC and Node-RED to simulate Modbus attacks. I work with SIEM tools like Wazuh to understand log analysis and detection mechanisms, writing Python and Bash scripts to automate audits and enumeration.</p>
   </section>
 
   <section id="skills" data-aos="fade-up">
@@ -66,7 +237,7 @@
     <div class="grid">
       <div class="card">
         <button class="toggle" onclick="toggleDetails('proj1')">📁 RajCyberTools</button>
-        <div class="detail" id="proj1">Toolkit of custom Bash scripts for recon and audits.<br><a href="https://github.com/rajkonkar/RajCyberTools" target="_blank">View on GitHub</a></div>
+        <div class="detail" id="proj1">Custom Bash tools for recon and automation.<br><a href="https://github.com/rajkonkar/RajCyberTools" target="_blank">View on GitHub</a></div>
       </div>
       <div class="card">
         <button class="toggle" onclick="toggleDetails('proj2')">📁 Linux User Audit Tool</button>
@@ -74,18 +245,18 @@
       </div>
       <div class="card">
         <button class="toggle" onclick="toggleDetails('proj3')">📁 Wazuh SIEM Lab</button>
-        <div class="detail" id="proj3">Simulates brute-force/malware scenarios using Wazuh.<br><a href="https://github.com/rajkonkar/wazuh-siem-lab" target="_blank">View on GitHub</a></div>
+        <div class="detail" id="proj3">Simulates brute-force and malware scenarios using Wazuh.<br><a href="https://github.com/rajkonkar/wazuh-siem-lab" target="_blank">View on GitHub</a></div>
       </div>
       <div class="card">
         <button class="toggle" onclick="toggleDetails('proj4')">📁 OT Security Lab</button>
-        <div class="detail" id="proj4">ICS/SCADA Modbus attack lab with OpenPLC and Node-RED.</div>
+        <div class="detail" id="proj4">ICS/SCADA lab using OpenPLC and Node-RED for Modbus attacks.</div>
       </div>
     </div>
   </section>
 
   <section id="ctf" data-aos="fade-up">
     <h2>CTF Writeups</h2>
-    <p>I regularly participate in CTF challenges and publish detailed walkthroughs of real-world simulations. These focus on web exploits, privilege escalation, and logic flaws.</p>
+    <p>I participate in CTF challenges and write detailed walkthroughs on real-world attack simulations focusing on privilege escalation, web exploits, and logic flaws.</p>
     <p style="margin-top: 20px;"><a href="writeups.html" class="btn" target="_blank">Open CTF Writeups</a></p>
   </section>
 
@@ -94,15 +265,15 @@
     <p><strong>Technical Support Engineer – Karix, Mumbai</strong> (Jul 2022 – Mar 2023)</p>
     <ul>
       <li>Resolved 200+ critical Linux and SQL issues with 98% SLA adherence.</li>
-      <li>Reduced system downtime by 90% via proactive monitoring.</li>
-      <li>Created documentation that improved resolution speed by 40%.</li>
+      <li>Reduced downtime by 90% through proactive alerting.</li>
+      <li>Created documentation that improved resolution time by 40%.</li>
     </ul>
   </section>
 
   <section id="education" data-aos="fade-up">
     <h2>Education & Certifications</h2>
     <ul>
-      <li><strong>MSc Cyber Security</strong> – University of York (2023–2024) [NCSC Certified]</li>
+      <li><strong>MSc Cyber Security</strong> – University of York, UK (2023–2024) [NCSC Certified]</li>
       <li><strong>BSc Computer Science</strong> – Thakur College, Mumbai (2019–2022) | CGPA: 8.73</li>
       <li><strong>Certifications:</strong> Ethical Hacking (Udemy), Network Security Fundamentals (Udemy)</li>
       <li><em>In Progress:</em> CompTIA Security+, Google Cybersecurity Certificate</li>

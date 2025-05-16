@@ -380,18 +380,25 @@
     once: true
   });
 
-  function toggleDetails(id) {
-  const details = document.querySelectorAll(".detail");
-  details.forEach(d => {
-    if (d.id !== id) d.style.display = "none";
+ <script>
+  AOS.init({
+    duration: 700,
+    easing: 'ease-out-cubic',
+    once: true
   });
 
-  const target = document.getElementById(id);
-  target.style.display = (target.style.display === "block") ? "none" : "block";
-  target.style.transition = "all 0.3s ease-in-out";
-}
-
+  function toggleDetails(id) {
+    const allDetails = document.querySelectorAll('.detail');
+    allDetails.forEach(detail => {
+      if (detail.id === id) {
+        detail.classList.toggle('show');
+      } else {
+        detail.classList.remove('show');
+      }
+    });
+  }
 </script>
+
 
 </body>
 </html>

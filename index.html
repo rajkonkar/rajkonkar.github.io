@@ -83,15 +83,26 @@
       border-left-color: var(--accent-dark);
       transform: scale(1.02);
     }
-    button.card.toggle {
-      font-size: 1rem;
-      font-weight: 600;
-      color: var(--text-dark);
-      background: var(--card-bg);
-      border: none;
-      text-align: left;
-      cursor: pointer;
-    }
+    .toggle {
+  background-color: #3b82f6;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s, transform 0.2s ease;
+}
+.toggle:hover {
+  background-color: #2563eb;
+  transform: translateY(-1px);
+}
+
     .detail {
       font-size: 0.95rem;
       line-height: 1.6;
@@ -359,10 +370,16 @@
   });
 
   function toggleDetails(id) {
-    const el = document.getElementById(id);
-    el.style.display = el.style.display === "none" ? "block" : "none";
-    el.style.transition = "all 0.3s ease-in-out";
-  }
+  const details = document.querySelectorAll(".detail");
+  details.forEach(d => {
+    if (d.id !== id) d.style.display = "none";
+  });
+
+  const target = document.getElementById(id);
+  target.style.display = (target.style.display === "block") ? "none" : "block";
+  target.style.transition = "all 0.3s ease-in-out";
+}
+
 </script>
 
 </body>

@@ -1,322 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" x-data="{ darkMode: false }" :class="{ 'dark': darkMode }">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raj Konkar | Cybersecurity Portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Segoe+UI:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <meta name="description" content="Portfolio of Raj Konkar - Cybersecurity Engineer. Showcasing skills, projects, and experience.">
+  <title>Raj Konkar Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter','sans-serif'] },
+          colors: { accent: '#3b82f6' }
+        }
+      }
+    }
+  </script>
+
+  <!-- Alpine.js -->
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- GLightbox CSS & JS -->
+  <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
   <style>
-    :root {
-      --main-bg: #f5f7fa;
-      --accent: #3b82f6;
-      --accent-dark: #2563eb;
-      --text-dark: #0f172a;
-      --text-light: #ffffff;
-      --card-bg: #ffffff;
-      --hover-bg: #e0f2fe;
-    }
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    html {
-      scroll-padding-top: 100px;
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: var(--main-bg);
-      color: var(--text-dark);
-    }
-    header.hero {
-      background-color: var(--text-dark);
-      color: var(--text-light);
-      text-align: center;
-      padding: 80px 20px;
-      border-bottom: 4px solid var(--accent);
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    }
-    header.hero h1 {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: var(--text-light);
-    }
-    header.hero p {
-      font-size: 1.1rem;
-      color: var(--text-light);
-      margin: 6px 0;
-    }
-    .navbar {
-      background-color: var(--text-dark);
-      padding: 10px 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-    }
-    .nav-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .nav-container a {
-      color: var(--text-light);
-      text-decoration: none;
-      font-weight: 500;
-      font-size: 0.95rem;
-      padding: 8px 12px;
-      border-radius: 6px;
-      transition: background 0.3s;
-    }
-    .nav-container a:hover {
-      background-color: var(--accent);
-    }
-    section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 40px 20px;
-      border-bottom: 1px solid #e5e7eb;
-    }
-    h2 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      color: var(--text-dark);
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-    .card {
-      background: var(--card-bg);
-      border: 2px solid #cbd5e1;
-      border-left: 6px solid var(--accent);
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.08);
-      transition: all 0.3s ease;
-    }
-    .card:hover {
-      background: var(--hover-bg);
-      border-left-color: var(--accent-dark);
-      transform: scale(1.02);
-    }
-    .toggle {
-      background-color: var(--accent);
-      color: white;
-      font-weight: 600;
-      border: none;
-      border-radius: 10px;
-      padding: 12px 20px;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      cursor: pointer;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-      transition: background-color 0.3s, transform 0.2s ease;
-    }
-    .toggle:hover {
-      background-color: var(--accent-dark);
-      transform: translateY(-1px);
-    }
-    .detail {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      background-color: #f1f5f9;
-      border-left: 4px solid var(--accent);
-      margin-top: 10px;
-      padding: 0 15px;
-      border-radius: 8px;
-      max-height: 0;
-      overflow: hidden;
-      opacity: 0;
-      transition: max-height 0.4s ease, opacity 0.4s ease, padding 0.4s ease;
-    }
-    .detail.show {
-      max-height: 500px;
-      opacity: 1;
-      padding: 10px 15px;
-    }
-    .btn {
-      background-color: var(--accent);
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 8px;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-    .btn:hover {
-      background-color: var(--accent-dark);
-    }
-    ul.contact-list li a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-    ul.contact-list li a:hover {
-      text-decoration: underline;
-    }
+    html { scroll-behavior: smooth; }
   </style>
 </head>
-<body>
-  <header class="hero">
-    <h1>Raj M. Konkar</h1>
-    <p>Cybersecurity Graduate | Offensive Security Enthusiast | SIEM & Threat Detection Explorer</p>
-    <p>📍 Leeds, UK | 📧 <a href="mailto:konkarraj1234@gmail.com" style="color: var(--text-light);">konkarraj1234@gmail.com</a></p>
-    <p style="margin-top: 12px; font-size: 1rem; color: var(--text-light);">
-      Passionate about bridging offensive tactics and defensive insights. Always hands-on from scripting custom tools to deploying real-world SIEM setups and simulating adversary emulation in custom-built labs.
-    </p>
+<body class="font-sans bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+
+  <!-- Navbar -->
+  <header class="fixed w-full bg-white dark:bg-gray-800 shadow z-50">
+    <div class="max-w-4xl mx-auto flex items-center justify-between p-4">
+      <h1 class="text-xl font-semibold">Raj Konkar</h1>
+      <nav>
+        <ul class="flex space-x-6">
+          <li><a href="#about"   class="hover:text-accent">About</a></li>
+          <li><a href="#skills"  class="hover:text-accent">Skills</a></li>
+          <li><a href="#projects"class="hover:text-accent">Projects</a></li>
+          <li><a href="#contact" class="hover:text-accent">Contact</a></li>
+        </ul>
+      </nav>
+      <button @click="darkMode = !darkMode" class="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none">
+        <span x-show="!darkMode">🌙</span>
+        <span x-show="darkMode">☀️</span>
+      </button>
+    </div>
   </header>
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#ctf">Writeups</a>
-      <a href="#experience">Experience</a>
-      <a href="#education">Education</a>
-      <a href="#contact">Contact</a>
-      <a href="resume.pdf" target="_blank">Resume</a>
-      <a href="https://github.com/rajkonkar" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/raj-konkar-b70b512a0" target="_blank">LinkedIn</a>
-    </div>
-  </nav>
 
-  <section id="about" data-aos="fade-up" style="text-align: justify;">
-    <h2>About Me</h2>
-    <p>
-      I'm <strong>Raj M. Konkar</strong>  a cybersecurity practitioner currently pursuing an MSc in Cyber Security at the University of York, an NCSC-certified program recognized for its academic rigor and real-world relevance.
-    </p>
-    <p>
-      With a background in Computer Science and experience in technical support, I've built a strong foundation in <strong>Linux systems</strong>, <strong>SQL environments</strong>, and <strong>infrastructure monitoring</strong>. This technical base helped me transition into the world of <strong>offensive security</strong>.
-    </p>
-    <p>
-      I focus on <strong>penetration testing</strong>, <strong>Active Directory exploitation</strong>, and <strong>red teaming</strong>. I create custom labs to simulate enterprise networks, practice adversary emulation, and document findings through public <a href="https://github.com/rajkonkar" target="_blank">GitHub repositories</a> and writeups.
-    </p>
-    <p>
-      I also explore <strong>OT/ICS security</strong> by building hands-on labs with <strong>OpenPLC</strong> and <strong>Node-RED</strong> to replicate Modbus-based ICS/SCADA attack scenarios.
-    </p>
-    <p>
-      On the blue team side, I deploy and tune <strong>SIEM tools</strong> like Wazuh to simulate brute-force and malware attacks, analyze logs, and enhance detection capabilities. I write <strong>Python</strong> and <strong>Bash</strong> scripts to automate enumeration, auditing, and system hardening.
-    </p>
-    <p>
-      I thrive in collaborative environments and value continuous learning through real-world challenges such as <strong>bug bounty programs</strong>, <strong>CTFs</strong>, and open-source contributions. I'm actively seeking a role in offensive or defensive security where I can solve meaningful problems and grow with a forward-thinking team.
-    </p>
-  </section>
+  <main class="mt-20 px-4 max-w-4xl mx-auto">
 
-  <section id="skills" data-aos="fade-up">
-    <h2>Skills & Tools</h2>
-    <div class="grid">
-      <div class="card">
-        <button class="toggle" onclick="toggleDetails('skill1')">🛠️ Penetration Testing</button>
-        <div class="detail" id="skill1">Web, Linux, API testing, logic flaws, post-exploitation.</div>
-      </div>
-      <div class="card">
-        <button class="toggle" onclick="toggleDetails('skill2')">🧰 Tools</button>
-        <div class="detail" id="skill2">Nmap, Metasploit, Burp Suite, Wireshark, Wazuh, Splunk.</div>
-      </div>
-      <div class="card">
-        <button class="toggle" onclick="toggleDetails('skill3')">💻 Scripting</button>
-        <div class="detail" id="skill3">Python, Bash — used for automation, enumeration, and audits.</div>
-      </div>
-      <div class="card">
-        <button class="toggle" onclick="toggleDetails('skill4')">🖥️ Systems</button>
-        <div class="detail" id="skill4">Linux (Ubuntu/Kali), Windows Server, SQL environments.</div>
-      </div>
-      <div class="card">
-        <button class="toggle" onclick="toggleDetails('skill5')">🔐 SIEM & Defense</button>
-        <div class="detail" id="skill5">Custom Wazuh setup, log monitoring, brute-force simulation.</div>
-      </div>
-      <div class="card">
-        <button class="toggle" onclick="toggleDetails('skill6')">📚 Frameworks</button>
-        <div class="detail" id="skill6">MITRE ATT&CK, NIST CSF.</div>
-      </div>
-      <div class="card">
-        <button class="toggle" onclick="toggleDetails('skill7')">🗣️ Soft Skills</button>
-        <div class="detail" id="skill7">Report writing, collaboration, communication.</div>
-      </div>
-    </div>
-  </section>
+    <!-- Hero -->
+    <section id="about" class="text-center py-16">
+      <img src="https://picsum.photos/256?random=1001"
+           alt="Profile placeholder"
+           class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg"/>
+      <h2 class="text-4xl font-semibold">Hello, I'm Raj.</h2>
+      <p class="mt-4 text-lg">Cybersecurity Engineer • Open Source Enthusiast • Problem Solver</p>
+    </section>
 
-  <section id="projects" data-aos="fade-up">
-    <h2>Projects</h2>
-    <div class="grid">
-      <div class="card">
-        <button class="toggle" onclick="toggleDetails('proj1')">📁 RajCyberTools</button>
-        <div class="detail" id="proj1">Custom Bash tools for recon and automation.<br><a href="https://github.com/rajkonkar/RajCyberTools" target="_blank">View on GitHub</a></div>
+    <!-- Skills -->
+    <section id="skills" class="py-16">
+      <h3 class="text-2xl font-semibold border-b-2 border-accent inline-block pb-2 mb-6">Skills</h3>
+      <div class="w-full md:w-2/3 mx-auto">
+        <canvas id="skillsChart" width="400" height="400"></canvas>
       </div>
-      <div class="card">
-        <button class="toggle" onclick="toggleDetails('proj2')">📁 Linux User Audit Tool</button>
-        <div class="detail" id="proj2">Scans user accounts and sudo privileges.<br><a href="https://github.com/rajkonkar/linux-user-audit-tool" target="_blank">View on GitHub</a></div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="py-16">
+      <h3 class="text-2xl font-semibold border-b-2 border-accent inline-block pb-2 mb-6">Projects</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <a href="https://picsum.photos/800/600?random=2001"
+           class="glightbox"
+           data-gallery="projects"
+           data-title="Project 1">
+          <img src="https://picsum.photos/400/300?random=2001"
+               alt="Project 1 placeholder"
+               class="w-full rounded-lg shadow-lg hover:scale-105 transition-transform duration-200"/>
+        </a>
       </div>
-      <div class="card">
-        <button class="toggle" onclick="toggleDetails('proj3')">📁 Wazuh SIEM Lab</button>
-        <div class="detail" id="proj3">Simulates brute-force and malware scenarios using Wazuh.<br><a href="https://github.com/rajkonkar/wazuh-siem-lab" target="_blank">View on GitHub</a></div>
-      </div>
-      <div class="card">
-        <button class="toggle" onclick="toggleDetails('proj4')">📁 OT Security Lab</button>
-        <div class="detail" id="proj4">ICS/SCADA lab using OpenPLC and Node-RED for Modbus attacks.</div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="ctf" data-aos="fade-up">
-    <h2>CTF Writeups</h2>
-    <p>I participate in CTF challenges and write detailed walkthroughs on real-world attack simulations focusing on privilege escalation, web exploits, and logic flaws.</p>
-    <p style="margin-top: 20px;"><a href="writeups.html" class="btn" target="_blank">Open CTF Writeups</a></p>
-  </section>
+    <!-- Contact -->
+    <section id="contact" class="py-16">
+      <h3 class="text-2xl font-semibold border-b-2 border-accent inline-block pb-2 mb-6">Contact Me</h3>
+      <form action="mailto:raj@example.com" method="POST" class="grid gap-4">
+        <input  type="text"     name="name"    placeholder="Your Name"  required
+                class="p-3 border rounded bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-accent"/>
+        <input  type="email"    name="email"   placeholder="Your Email" required
+                class="p-3 border rounded bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-accent"/>
+        <textarea name="message" placeholder="Your Message" rows="4" required
+                class="p-3 border rounded bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-accent"></textarea>
+        <button type="submit"
+                class="px-6 py-3 bg-accent text-white rounded-lg hover:bg-opacity-90 transition">
+          Send Message
+        </button>
+      </form>
+    </section>
 
-  <section id="experience" data-aos="fade-up">
-    <h2>Experience</h2>
-    <p><strong>Technical Support Engineer – Karix, Mumbai</strong> (Jul 2022 – Mar 2023)</p>
-    <ul>
-      <li>Resolved 200+ critical Linux and SQL issues with 98% SLA adherence.</li>
-      <li>Reduced downtime by 90% through proactive alerting.</li>
-      <li>Created documentation that improved resolution time by 40%.</li>
-    </ul>
-  </section>
+  </main>
 
-  <section id="education" data-aos="fade-up">
-    <h2>Education & Certifications</h2>
-    <ul>
-      <li><strong>MSc Cyber Security</strong> – University of York, UK (2023–2024) [NCSC Certified]</li>
-      <li><strong>BSc Computer Science</strong> – Thakur College, Mumbai (2019–2022) | CGPA: 8.73</li>
-      <li><strong>Certifications:</strong> Ethical Hacking (Udemy), Network Security Fundamentals (Udemy)</li>
-      <li><em>In Progress:</em> CompTIA Security+, Google Cybersecurity Certificate</li>
-    </ul>
-  </section>
-
-  <section id="contact" data-aos="fade-up">
-    <h2>Contact</h2>
-    <ul class="contact-list">
-      <li>📧 <a href="mailto:konkarraj1234@gmail.com">konkarraj1234@gmail.com</a></li>
-      <li>🔗 <a href="writeups.html" target="_blank">Writeups</a></li>
-      <li>💻 <a href="https://github.com/rajkonkar">GitHub</a></li>
-    </ul>
-  </section>
-
+  <!-- Scripts -->
   <script>
-  AOS.init({
-    duration: 700,
-    easing: 'ease-out-cubic',
-    once: true
-  });
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize lightbox
+      GLightbox({ selector: '.glightbox' });
 
-  function toggleDetails(id) {
-    const detail = document.getElementById(id);
-    detail.classList.toggle('show');
-  }
-</script>
+      // Render Skills radar chart
+      const ctx = document.getElementById('skillsChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'radar',
+        data: {
+          labels: ['Python','Bash','Metasploit','Wazuh','Docker'],
+          datasets: [{
+            label: 'Proficiency',
+            data: [85,75,70,80,65],
+            fill: true,
+            backgroundColor: 'rgba(59,130,246,0.2)',
+            borderColor: 'rgba(59,130,246,1)',
+            pointBackgroundColor: 'rgba(59,130,246,1)'
+          }]
+        },
+        options: {
+          scales: {
+            r: {
+              beginAtZero: true,
+              pointLabels: { font: { size: 14 } }
+            }
+          },
+          plugins: {
+            legend: { labels: { font: { size: 14 } } }
+          }
+        }
+      });
+    });
+  </script>
+
 </body>
 </html>

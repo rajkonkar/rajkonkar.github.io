@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Raj Konkar - Cybersecurity Engineer. Showcasing skills, projects, and experience.">
+  <meta name="description" content="Portfolio of Raj Konkar - Cybersecurity Engineer. Showcasing skills, projects, writeups, and experience.">
   <title>Raj Konkar Portfolio</title>
 
   <!-- Google Fonts -->
@@ -13,6 +13,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
+      darkMode: 'class',
       theme: {
         extend: {
           fontFamily: { sans: ['Inter','sans-serif'] },
@@ -28,12 +29,9 @@
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-  <!-- GLightbox CSS & JS -->
-  <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-
   <style>
     html { scroll-behavior: smooth; }
+    section { scroll-margin-top: 4rem; }
   </style>
 </head>
 <body class="font-sans bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
@@ -43,69 +41,94 @@
     <div class="max-w-4xl mx-auto flex items-center justify-between p-4">
       <h1 class="text-xl font-semibold">Raj Konkar</h1>
       <nav>
-        <ul class="flex space-x-6">
-          <li><a href="#about"   class="hover:text-accent">About</a></li>
-          <li><a href="#skills"  class="hover:text-accent">Skills</a></li>
-          <li><a href="#projects"class="hover:text-accent">Projects</a></li>
+        <ul class="flex space-x-4 text-sm md:text-base">
+          <li><a href="#about" class="hover:text-accent">About</a></li>
+          <li><a href="#skills" class="hover:text-accent">Skills</a></li>
+          <li><a href="#projects" class="hover:text-accent">Projects</a></li>
+          <li><a href="writeups.html" class="hover:text-accent">Writeups</a></li>
+          <li><a href="#resume" class="hover:text-accent">Resume</a></li>
           <li><a href="#contact" class="hover:text-accent">Contact</a></li>
         </ul>
       </nav>
       <button @click="darkMode = !darkMode" class="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none">
-        <span x-show="!darkMode">🌙</span>
-        <span x-show="darkMode">☀️</span>
+        <span x-show="!darkMode">🌙</span><span x-show="darkMode">☀️</span>
       </button>
     </div>
   </header>
 
-  <main class="mt-20 px-4 max-w-4xl mx-auto">
+  <main class="mt-20 px-4 max-w-4xl mx-auto space-y-16">
 
-    <!-- Hero -->
-    <section id="about" class="text-center py-16">
-      <img src="https://picsum.photos/256?random=1001"
-           alt="Profile placeholder"
-           class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg"/>
-      <h2 class="text-4xl font-semibold">Hello, I'm Raj.</h2>
-      <p class="mt-4 text-lg">Cybersecurity Engineer • Open Source Enthusiast • Problem Solver</p>
+    <!-- About -->
+    <section id="about" class="text-center">
+      <h2 class="text-4xl font-semibold mb-4">About Me</h2>
+      <p class="max-w-2xl mx-auto text-lg leading-relaxed">
+        I am a Cybersecurity Engineer with an MSc in Cybersecurity. I specialize in digital forensics, vulnerability assessments, and security automation. Passionate about open-source projects and community-driven security research.
+      </p>
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="py-16">
-      <h3 class="text-2xl font-semibold border-b-2 border-accent inline-block pb-2 mb-6">Skills</h3>
-      <div class="w-full md:w-2/3 mx-auto">
-        <canvas id="skillsChart" width="400" height="400"></canvas>
+    <section id="skills" class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+      <h3 class="text-2xl font-semibold border-b-2 border-accent inline-block pb-2 mb-6">Skills & Proficiency</h3>
+      <div class="flex flex-col md:flex-row items-center md:space-x-8">
+        <div class="w-full md:w-1/2 mb-6 md:mb-0" style="height:300px;">
+          <canvas id="skillsChart"></canvas>
+        </div>
+        <ul class="w-full md:w-1/2 space-y-2 text-lg">
+          <li>Python <span class="text-accent font-semibold">85%</span></li>
+          <li>Bash Scripting <span class="text-accent font-semibold">75%</span></li>
+          <li>Metasploit <span class="text-accent font-semibold">70%</span></li>
+          <li>Wazuh SIEM <span class="text-accent font-semibold">80%</span></li>
+          <li>Docker <span class="text-accent font-semibold">65%</span></li>
+        </ul>
       </div>
     </section>
 
     <!-- Projects -->
-    <section id="projects" class="py-16">
-      <h3 class="text-2xl font-semibold border-b-2 border-accent inline-block pb-2 mb-6">Projects</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <a href="https://picsum.photos/800/600?random=2001"
-           class="glightbox"
-           data-gallery="projects"
-           data-title="Project 1">
-          <img src="https://picsum.photos/400/300?random=2001"
-               alt="Project 1 placeholder"
-               class="w-full rounded-lg shadow-lg hover:scale-105 transition-transform duration-200"/>
-        </a>
+    <section id="projects">
+      <h3 class="text-2xl font-semibold border-b-2 border-accent inline-block pb-2 mb-6">Featured Projects</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+          <h4 class="text-xl font-semibold mb-2">Security Monitoring Dashboard</h4>
+          <p class="leading-relaxed">Developed a real-time SIEM dashboard using Wazuh & Elasticsearch to visualize security events and generate alerts.</p>
+          <a href="https://github.com/rajkonkar/monitoring-dashboard" class="text-accent hover:underline mt-2 inline-block">GitHub Repo</a>
+        </div>
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+          <h4 class="text-xl font-semibold mb-2">Penetration Testing Lab</h4>
+          <p class="leading-relaxed">Built an automated Pentest lab environment with Metasploit, Docker, and custom scripts for vulnerability assessments.</p>
+          <a href="https://github.com/rajkonkar/pentest-lab" class="text-accent hover:underline mt-2 inline-block">GitHub Repo</a>
+        </div>
+        <div class="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
+          <h4 class="text-xl font-semibold mb-2">Forensic Analysis Toolkit</h4>
+          <p class="leading-relaxed">Created a Python toolkit for disk image analysis, artifact collection, and report generation for digital forensics.</p>
+          <a href="https://github.com/rajkonkar/forensic-toolkit" class="text-accent hover:underline mt-2 inline-block">GitHub Repo</a>
+        </div>
       </div>
     </section>
 
+    <!-- Writeups -->
+    <section id="writeups" class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
+      <h3 class="text-2xl font-semibold border-b-2 border-accent inline-block pb-2 mb-6">CTF Writeups & Articles</h3>
+      <ul class="list-disc list-inside space-y-2 text-lg">
+        <li><a href="writeups.html#writeup1" class="text-accent hover:underline">Buffer Overflow Challenge Writeup</a></li>
+        <li><a href="writeups.html#writeup2" class="text-accent hover:underline">Web Exploitation CTF Writeup</a></li>
+        <li><a href="writeups.html#writeup3" class="text-accent hover:underline">Reverse Engineering Challenge</a></li>
+      </ul>
+    </section>
+
+    <!-- Resume -->
+    <section id="resume" class="text-center">
+      <h3 class="text-2xl font-semibold border-b-2 border-accent inline-block pb-2 mb-6">Resume</h3>
+      <a href="resume.pdf" target="_blank" class="px-6 py-3 bg-accent text-white rounded-lg hover:bg-opacity-90 transition">Download Resume (PDF)</a>
+    </section>
+
     <!-- Contact -->
-    <section id="contact" class="py-16">
+    <section id="contact" class="bg-gray-50 dark:bg-gray-800 p-6 rounded-lg">
       <h3 class="text-2xl font-semibold border-b-2 border-accent inline-block pb-2 mb-6">Contact Me</h3>
-      <form action="mailto:raj@example.com" method="POST" class="grid gap-4">
-        <input  type="text"     name="name"    placeholder="Your Name"  required
-                class="p-3 border rounded bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-accent"/>
-        <input  type="email"    name="email"   placeholder="Your Email" required
-                class="p-3 border rounded bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-accent"/>
-        <textarea name="message" placeholder="Your Message" rows="4" required
-                class="p-3 border rounded bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-accent"></textarea>
-        <button type="submit"
-                class="px-6 py-3 bg-accent text-white rounded-lg hover:bg-opacity-90 transition">
-          Send Message
-        </button>
-      </form>
+      <p class="text-lg mb-4">Feel free to reach out via email or connect on LinkedIn.</p>
+      <ul class="space-y-2 text-lg">
+        <li>Email: <a href="mailto:rajkonkar@example.com" class="text-accent hover:underline">rajkonkar@example.com</a></li>
+        <li>LinkedIn: <a href="https://linkedin.com/in/rajkonkar" class="text-accent hover:underline">linkedin.com/in/rajkonkar</a></li>
+      </ul>
     </section>
 
   </main>
@@ -113,9 +136,6 @@
   <!-- Scripts -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Initialize lightbox
-      GLightbox({ selector: '.glightbox' });
-
       // Render Skills radar chart
       const ctx = document.getElementById('skillsChart').getContext('2d');
       new Chart(ctx, {
@@ -126,7 +146,7 @@
             label: 'Proficiency',
             data: [85,75,70,80,65],
             fill: true,
-            backgroundColor: 'rgba(59,130,246,0.2)',
+            backgroundColor: 'rgba(59,130,246,0.3)',
             borderColor: 'rgba(59,130,246,1)',
             pointBackgroundColor: 'rgba(59,130,246,1)'
           }]
@@ -135,12 +155,16 @@
           scales: {
             r: {
               beginAtZero: true,
-              pointLabels: { font: { size: 14 } }
+              pointLabels: { font: { size: 14 }, color: '#374151' },
+              grid: { color: 'rgba(55,65,81,0.2)' },
+              angleLines: { color: 'rgba(55,65,81,0.2)' },
+              ticks: { backdropColor: 'transparent', color: '#374151' }
             }
           },
           plugins: {
-            legend: { labels: { font: { size: 14 } } }
-          }
+            legend: { labels: { color: '#374151', font: { size: 14 } } }
+          },
+          maintainAspectRatio: false
         }
       });
     });

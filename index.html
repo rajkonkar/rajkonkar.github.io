@@ -1,150 +1,184 @@
 <!DOCTYPE html>
-<html lang="en" x-data="{ darkMode: false }" :class="{ 'dark': darkMode }">
+<html lang="en"
+  x-data="{ darkMode: (localStorage.getItem('darkMode')==='true') || window.matchMedia('(prefers-color-scheme: dark)').matches }"
+  x-init="
+    document.documentElement.classList.toggle('dark', darkMode);
+    $watch('darkMode', val => {
+      document.documentElement.classList.toggle('dark', val);
+      localStorage.setItem('darkMode', val);
+    });
+  "
+>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Raj Konkar - Cybersecurity Engineer. Showcasing skills, projects, and experience.">
-  <title>Raj Konkar Portfolio</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Raj Konkar – Cybersecurity Engineer</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: { sans: ['Inter','sans-serif'] },
-          colors: { accent: '#3b82f6' }
-        }
-      }
+      darkMode: 'class',
+      theme: { extend: { colors: { accent: '#1e3a8a' } } }
     }
   </script>
-
-  <!-- Alpine.js -->
+  <!-- Alpine.js for Dark Mode -->
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-  <!-- Chart.js -->
+  <!-- Chart.js for proficiency -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-  <!-- GLightbox CSS & JS -->
-  <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
+  <!-- GLightbox for project images -->
+  <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-
-  <style>
-    html { scroll-behavior: smooth; }
-  </style>
+  <style> html { scroll-behavior: smooth; } section { scroll-margin-top: 5rem; } </style>
 </head>
-<body class="font-sans bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300">
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-sans transition-colors duration-300">
 
-  <!-- Navbar -->
-  <header class="fixed w-full bg-white dark:bg-gray-800 shadow z-50">
-    <div class="max-w-4xl mx-auto flex items-center justify-between p-4">
-      <h1 class="text-xl font-semibold">Raj Konkar</h1>
-      <nav>
-        <ul class="flex space-x-6">
-          <li><a href="#about"   class="hover:text-accent">About</a></li>
-          <li><a href="#skills"  class="hover:text-accent">Skills</a></li>
-          <li><a href="#projects"class="hover:text-accent">Projects</a></li>
-          <li><a href="#contact" class="hover:text-accent">Contact</a></li>
-        </ul>
+  <!-- NAVBAR -->
+  <header class="fixed top-0 inset-x-0 bg-white dark:bg-gray-800 shadow z-50">
+    <div class="max-w-5xl mx-auto flex items-center justify-between p-4">
+      <h1 class="text-2xl font-bold text-accent">RajKonkar</h1>
+      <nav class="space-x-6 hidden md:block">
+        <a href="#about"    class="hover:text-accent">About</a>
+        <a href="#tools"    class="hover:text-accent">Tools</a>
+        <a href="#certs"    class="hover:text-accent">Certs</a>
+        <a href="#labs"     class="hover:text-accent">Labs</a>
+        <a href="#writeups" class="hover:text-accent">Writeups</a>
+        <a href="#resume"   class="hover:text-accent">Resume</a>
+        <a href="#contact"  class="hover:text-accent">Contact</a>
       </nav>
-      <button @click="darkMode = !darkMode" class="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700 focus:outline-none">
+      <button @click="darkMode = !darkMode" class="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700">
         <span x-show="!darkMode">🌙</span>
         <span x-show="darkMode">☀️</span>
       </button>
     </div>
   </header>
 
-  <main class="mt-20 px-4 max-w-4xl mx-auto">
+  <main class="pt-20">
 
-    <!-- Hero -->
-    <section id="about" class="text-center py-16">
-      <img src="https://picsum.photos/256?random=1001"
-           alt="Profile placeholder"
-           class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg"/>
-      <h2 class="text-4xl font-semibold">Hello, I'm Raj.</h2>
-      <p class="mt-4 text-lg">Cybersecurity Engineer • Open Source Enthusiast • Problem Solver</p>
-    </section>
-
-    <!-- Skills -->
-    <section id="skills" class="py-16">
-      <h3 class="text-2xl font-semibold border-b-2 border-accent inline-block pb-2 mb-6">Skills</h3>
-      <div class="w-full md:w-2/3 mx-auto">
-        <canvas id="skillsChart" width="400" height="400"></canvas>
+    <!-- HERO -->
+    <section id="about" class="relative overflow-hidden">
+      <div class="bg-gradient-to-r from-accent to-blue-700 text-white py-28">
+        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center px-4">
+          <div class="w-32 h-32 bg-white rounded-full overflow-hidden border-4 border-white mb-6 md:mb-0">
+            <!-- TODO: Replace with your profile image -->
+            <img src="https://picsum.photos/200" alt="Profile" class="object-cover w-full h-full" />
+          </div>
+          <div class="md:ml-8 text-center md:text-left">
+            <h2 class="text-4xl font-bold mb-2">Raj Konkar</h2>
+            <p class="text-xl">Cybersecurity Engineer • MSc Cybersecurity • OSCP</p>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects" class="py-16">
-      <h3 class="text-2xl font-semibold border-b-2 border-accent inline-block pb-2 mb-6">Projects</h3>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        <a href="https://picsum.photos/800/600?random=2001"
-           class="glightbox"
-           data-gallery="projects"
-           data-title="Project 1">
-          <img src="https://picsum.photos/400/300?random=2001"
-               alt="Project 1 placeholder"
-               class="w-full rounded-lg shadow-lg hover:scale-105 transition-transform duration-200"/>
+    <!-- TOOLS & PROFICIENCY -->
+    <section id="tools" class="max-w-5xl mx-auto py-16 px-4">
+      <h3 class="text-3xl font-semibold text-center mb-8">Tools & Proficiency</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div style="height:300px;">
+          <canvas id="toolsChart"></canvas>
+        </div>
+        <ul class="space-y-2 text-lg">
+          <!-- TODO: List out your tools with percentages -->
+          <li>Kali Linux – <strong class="text-accent">90%</strong></li>
+          <li>Metasploit – <strong class="text-accent">85%</strong></li>
+          <li>Wireshark – <strong class="text-accent">80%</strong></li>
+          <li>Burp Suite – <strong class="text-accent">75%</strong></li>
+          <li>Wazuh SIEM – <strong class="text-accent">70%</strong></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certs" class="bg-gray-50 dark:bg-gray-800 py-16 px-4">
+      <div class="max-w-5xl mx-auto">
+        <h3 class="text-3xl font-semibold text-center mb-8">Certifications & Training</h3>
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
+          <!-- TODO: Replace icons/text with your real certs -->
+          <div><img src="https://via.placeholder.com/64" alt="" class="mx-auto mb-2"/><p>CISSP</p></div>
+          <div><img src="https://via.placeholder.com/64" alt="" class="mx-auto mb-2"/><p>OSCP</p></div>
+          <div><img src="https://via.placeholder.com/64" alt="" class="mx-auto mb-2"/><p>CEH</p></div>
+          <div><img src="https://via.placeholder.com/64" alt="" class="mx-auto mb-2"/><p>Sec+ </p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LABS & PROJECTS -->
+    <section id="labs" class="max-w-5xl mx-auto py-16 px-4">
+      <h3 class="text-3xl font-semibold text-center mb-8">Labs & Projects</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- TODO: Copy this card for each project -->
+        <a href="#" class="block bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden glightbox" data-gallery="projects" data-title="Project 1">
+          <img src="https://picsum.photos/400/250?random=1" alt="Project 1" class="w-full h-48 object-cover"/>
+          <div class="p-4">
+            <h4 class="font-semibold mb-2">SIEM Dashboard</h4>
+            <p class="text-sm">Built a real-time Wazuh dashboard on Elasticsearch.</p>
+          </div>
         </a>
       </div>
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="py-16">
-      <h3 class="text-2xl font-semibold border-b-2 border-accent inline-block pb-2 mb-6">Contact Me</h3>
-      <form action="mailto:raj@example.com" method="POST" class="grid gap-4">
-        <input  type="text"     name="name"    placeholder="Your Name"  required
-                class="p-3 border rounded bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-accent"/>
-        <input  type="email"    name="email"   placeholder="Your Email" required
-                class="p-3 border rounded bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-accent"/>
-        <textarea name="message" placeholder="Your Message" rows="4" required
-                class="p-3 border rounded bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-accent"></textarea>
-        <button type="submit"
-                class="px-6 py-3 bg-accent text-white rounded-lg hover:bg-opacity-90 transition">
-          Send Message
-        </button>
-      </form>
+    <!-- WRITEUPS & PUBLICATIONS -->
+    <section id="writeups" class="bg-gray-50 dark:bg-gray-800 py-16 px-4">
+      <div class="max-w-5xl mx-auto">
+        <h3 class="text-3xl font-semibold text-center mb-8">Writeups & Publications</h3>
+        <ul class="list-disc list-inside space-y-3 text-lg">
+          <!-- TODO: Link to your writeups -->
+          <li><a href="writeups.html#buffer-overflow" class="text-accent hover:underline">Buffer Overflow Writeup</a></li>
+          <li><a href="writeups.html#web-exploit" class="text-accent hover:underline">Web Exploitation CTF</a></li>
+          <li><a href="writeups.html#forensics" class="text-accent hover:underline">Forensic Analysis Toolkit</a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- RESUME -->
+    <section id="resume" class="max-w-5xl mx-auto py-16 px-4 text-center">
+      <h3 class="text-3xl font-semibold mb-6">Resume</h3>
+      <a href="resume.pdf" target="_blank"
+         class="inline-block px-8 py-3 bg-accent text-white rounded-lg hover:bg-opacity-90 transition">
+        Download My Resume
+      </a>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="bg-gray-50 dark:bg-gray-800 py-16 px-4">
+      <div class="max-w-5xl mx-auto">
+        <h3 class="text-3xl font-semibold text-center mb-8">Contact Me</h3>
+        <form action="mailto:rajkonkar@example.com" method="POST" class="max-w-lg mx-auto grid gap-4">
+          <input  type="text"    name="name"    placeholder="Your Name" required
+                  class="p-3 border rounded bg-white dark:bg-gray-700"/>
+          <input  type="email"   name="email"   placeholder="Your Email" required
+                  class="p-3 border rounded bg-white dark:bg-gray-700"/>
+          <textarea name="message" placeholder="Your Message" rows="5" required
+                    class="p-3 border rounded bg-white dark:bg-gray-700"></textarea>
+          <button type="submit"
+                  class="px-6 py-3 bg-accent text-white rounded-lg hover:bg-opacity-90 transition">
+            Send Message
+          </button>
+        </form>
+      </div>
     </section>
 
   </main>
 
-  <!-- Scripts -->
+  <!-- INIT SCRIPTS -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // Initialize lightbox
       GLightbox({ selector: '.glightbox' });
-
-      // Render Skills radar chart
-      const ctx = document.getElementById('skillsChart').getContext('2d');
+      const ctx = document.getElementById('toolsChart').getContext('2d');
       new Chart(ctx, {
         type: 'radar',
         data: {
-          labels: ['Python','Bash','Metasploit','Wazuh','Docker'],
-          datasets: [{
-            label: 'Proficiency',
-            data: [85,75,70,80,65],
-            fill: true,
-            backgroundColor: 'rgba(59,130,246,0.2)',
-            borderColor: 'rgba(59,130,246,1)',
-            pointBackgroundColor: 'rgba(59,130,246,1)'
-          }]
+          labels: ['Kali','Metasploit','Wireshark','Burp','Wazuh'],
+          datasets: [{ label: 'Proficiency', data: [90,85,80,75,70],
+            backgroundColor:'rgba(30,58,138,0.3)',
+            borderColor:'rgba(30,58,138,1)',
+            pointBackgroundColor:'rgba(30,58,138,1)'}]
         },
-        options: {
-          scales: {
-            r: {
-              beginAtZero: true,
-              pointLabels: { font: { size: 14 } }
-            }
-          },
-          plugins: {
-            legend: { labels: { font: { size: 14 } } }
-          }
-        }
+        options:{ scales:{ r:{ beginAtZero:true }}, maintainAspectRatio:false }
       });
     });
   </script>
 
 </body>
 </html>
+

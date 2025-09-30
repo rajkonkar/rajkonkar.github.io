@@ -11,8 +11,8 @@
       theme: {
         extend: {
           colors: {
-            accent:  '#0ea5e9', /* cyan-500 */
-            accent2: '#22c55e', /* emerald-500 */
+            accent:  '#8b5cf6', /* violet-500 */
+            accent2: '#d946ef', /* fuchsia-600 */
             ink:    '#0b1220'
           }
         }
@@ -20,7 +20,6 @@
     }
   </script>
   <style>
-    /* Works with CDN (no @apply) */
     .card {
       background: #fff;
       border-radius: 1rem;
@@ -33,39 +32,59 @@
       border: 1px solid rgba(255,255,255,.25);
       backdrop-filter: blur(6px);
     }
+    .btn {
+      display:inline-flex;align-items:center;gap:.5rem;
+      border-radius:.75rem;padding:.75rem 1.1rem;font-weight:600
+    }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
 
-  <!-- HERO (Bold name + color gradient) -->
+  <!-- HERO -->
   <header class="relative overflow-hidden">
-    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-accent via-sky-600 to-accent2"></div>
-    <!-- decorative blobs -->
+    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-accent via-purple-700 to-accent2"></div>
     <div class="pointer-events-none absolute -top-24 -left-24 w-80 h-80 rounded-full bg-white/10 blur-3xl"></div>
     <div class="pointer-events-none absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-black/10 blur-3xl"></div>
 
     <div class="max-w-7xl mx-auto px-4 pt-16 pb-14 text-white">
       <p class="uppercase tracking-widest text-white/80 text-xs">Cybersecurity Portfolio</p>
-      <!-- NAME EMPHASIS -->
-      <h1 class="mt-2 font-extrabold leading-[1.05] text-5xl sm:text-6xl md:text-7xl">
+
+      <!-- NAME (more focus) -->
+      <h1 class="mt-2 font-extrabold leading-[1.05] text-5xl sm:text-6xl md:text-7xl drop-shadow">
         Raj <span class="whitespace-nowrap">M. Konkar</span>
       </h1>
+
       <p class="mt-4 text-white/90 text-base sm:text-lg">
         MSc Cybersecurity (University of York) • BSc Computer Science (8.73 CGPA)
       </p>
       <p class="mt-2 text-white/90 max-w-3xl">
-        Hands-on in SIEM, Incident Response, Threat Hunting, and foundational Pentesting. I build labs, automation scripts, and clear write-ups others can follow.
+        Hands-on in SIEM, Incident Response, Threat Hunting, and foundational Pentesting. I build labs,
+        automation scripts, and clear write-ups others can follow.
       </p>
 
-      <!-- CTA buttons -->
+      <!-- CTA BUTTONS (resume + github + email + phone + linkedin) -->
       <div class="mt-8 flex flex-wrap gap-3">
         <a href="Raj_Konkar_Cybersecurity_Resume.pdf" target="_blank" rel="noopener"
-           class="inline-flex items-center gap-2 rounded-xl px-5 py-3 bg-white text-ink font-semibold hover:bg-white/90 transition">
-          <span>⬇</span> Download Resume (PDF)
+           class="btn bg-white text-ink hover:bg-white/90 transition">
+          <span aria-hidden="true">⬇</span> Download Resume (PDF)
         </a>
+
         <a href="https://github.com/rajkonkar" target="_blank" rel="noopener"
-           class="inline-flex items-center gap-2 rounded-xl px-5 py-3 glass text-white font-semibold hover:bg-white/10 transition">
-          <span>💻</span> View GitHub
+           class="btn glass text-white hover:bg-white/10 transition">
+          <span aria-hidden="true">💻</span> GitHub
+        </a>
+
+        <a href="mailto:konkarraj1234@gmail.com" class="btn glass text-white hover:bg-white/10 transition">
+          <span aria-hidden="true">✉️</span> Email
+        </a>
+
+        <a href="tel:+447774738050" class="btn glass text-white hover:bg-white/10 transition">
+          <span aria-hidden="true">📞</span> +44 7774 738050
+        </a>
+
+        <a href="https://www.linkedin.com/in/raj-konkar-b70b512a0/" target="_blank" rel="noopener"
+           class="btn glass text-white hover:bg-white/10 transition">
+          <span aria-hidden="true">🔗</span> LinkedIn
         </a>
       </div>
     </div>
@@ -79,12 +98,13 @@
         <article class="card">
           <h2 class="text-lg font-semibold">About</h2>
           <p class="mt-2 text-sm text-slate-700">
-            I’m a cybersecurity generalist leaning blue-team: SIEM, detection, IR, and ATT&CK-driven hunting. I like building small tools/labs and writing concise, reproducible notes.
+            I’m a cybersecurity generalist leaning blue-team: SIEM, detection, IR, and ATT&CK-driven hunting.
+            I like building small tools/labs and writing concise, reproducible notes.
           </p>
           <div class="mt-4 flex flex-wrap gap-2">
-            <span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs">Blue Team</span>
-            <span class="px-2.5 py-1 bg-cyan-100 text-cyan-800 rounded-full text-xs">Automation</span>
-            <span class="px-2.5 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">Web Sec</span>
+            <span class="px-2.5 py-1 bg-violet-100 text-violet-800 rounded-full text-xs">Blue Team</span>
+            <span class="px-2.5 py-1 bg-fuchsia-100 text-fuchsia-800 rounded-full text-xs">Automation</span>
+            <span class="px-2.5 py-1 bg-purple-100 text-purple-800 rounded-full text-xs">Web Sec</span>
           </div>
         </article>
 
@@ -125,8 +145,8 @@
               <h3 class="font-semibold">Wazuh SIEM Lab</h3>
               <p class="mt-1 text-sm text-slate-700">Ingested host logs; simulated brute-force & privesc; tuned rules to reduce false positives.</p>
               <div class="mt-2 flex flex-wrap gap-2">
-                <span class="px-2 py-0.5 text-xs rounded-full bg-cyan-100 text-cyan-800">SIEM</span>
-                <span class="px-2 py-0.5 text-xs rounded-full bg-emerald-100 text-emerald-800">Detection</span>
+                <span class="px-2 py-0.5 text-xs rounded-full bg-violet-100 text-violet-800">SIEM</span>
+                <span class="px-2 py-0.5 text-xs rounded-full bg-fuchsia-100 text-fuchsia-800">Detection</span>
                 <span class="px-2 py-0.5 text-xs rounded-full bg-amber-100 text-amber-800">Medium</span>
               </div>
               <a class="mt-2 inline-block text-sm text-accent hover:underline" href="https://github.com/rajkonkar" target="_blank" rel="noopener">Repo / Notes</a>
@@ -136,7 +156,7 @@
               <h3 class="font-semibold">Threat Hunting Scripts</h3>
               <p class="mt-1 text-sm text-slate-700">Python/Bash detection utilities for anomalies & privilege changes; ATT&CK-mapped.</p>
               <div class="mt-2 flex flex-wrap gap-2">
-                <span class="px-2 py-0.5 text-xs rounded-full bg-fuchsia-100 text-fuchsia-800">ATT&CK</span>
+                <span class="px-2 py-0.5 text-xs rounded-full bg-purple-100 text-purple-800">ATT&CK</span>
                 <span class="px-2 py-0.5 text-xs rounded-full bg-slate-100 text-slate-800">Automation</span>
                 <span class="px-2 py-0.5 text-xs rounded-full bg-amber-100 text-amber-800">Medium</span>
               </div>
@@ -147,8 +167,8 @@
               <h3 class="font-semibold">Security Tools Repository</h3>
               <p class="mt-1 text-sm text-slate-700">Scripts for audits, log parsing, and alerting; helps bootstrap blue-team workflows.</p>
               <div class="mt-2 flex flex-wrap gap-2">
-                <span class="px-2 py-0.5 text-xs rounded-full bg-violet-100 text-violet-800">Tooling</span>
-                <span class="px-2 py-0.5 text-xs rounded-full bg-emerald-100 text-emerald-800">Automation</span>
+                <span class="px-2 py-0.5 text-xs rounded-full bg-fuchsia-100 text-fuchsia-800">Tooling</span>
+                <span class="px-2 py-0.5 text-xs rounded-full bg-violet-100 text-violet-800">Automation</span>
                 <span class="px-2 py-0.5 text-xs rounded-full bg-amber-100 text-amber-800">Easy</span>
               </div>
               <a class="mt-2 inline-block text-sm text-accent hover:underline" href="https://github.com/rajkonkar" target="_blank" rel="noopener">Repo / Notes</a>

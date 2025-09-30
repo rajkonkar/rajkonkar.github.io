@@ -12,7 +12,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Raj Konkar – Cybersecurity Engineer</title>
+  <title>Raj Konkar – Cybersecurity Portfolio</title>
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -38,10 +38,9 @@
       <h1 class="text-2xl font-bold text-accent">RajKonkar</h1>
       <nav class="space-x-6 hidden md:block">
         <a href="#about"    class="hover:text-accent">About</a>
-        <a href="#tools"    class="hover:text-accent">Tools</a>
+        <a href="#tools"    class="hover:text-accent">Skills</a>
         <a href="#certs"    class="hover:text-accent">Certs</a>
-        <a href="#labs"     class="hover:text-accent">Labs</a>
-        <a href="#writeups" class="hover:text-accent">Writeups</a>
+        <a href="#labs"     class="hover:text-accent">Projects</a>
         <a href="#resume"   class="hover:text-accent">Resume</a>
         <a href="#contact"  class="hover:text-accent">Contact</a>
       </nav>
@@ -59,31 +58,30 @@
       <div class="bg-gradient-to-r from-accent to-blue-700 text-white py-28">
         <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center px-4">
           <div class="w-32 h-32 bg-white rounded-full overflow-hidden border-4 border-white mb-6 md:mb-0">
-            <!-- TODO: Replace with your profile image -->
-            <img src="https://picsum.photos/200" alt="Profile" class="object-cover w-full h-full" />
+            <img src="profile.jpg" alt="Profile" class="object-cover w-full h-full" />
           </div>
           <div class="md:ml-8 text-center md:text-left">
-            <h2 class="text-4xl font-bold mb-2">Raj Konkar</h2>
-            <p class="text-xl">Cybersecurity Engineer • MSc Cybersecurity • OSCP</p>
+            <h2 class="text-4xl font-bold mb-2">Raj M. Konkar</h2>
+            <p class="text-xl">MSc Cybersecurity • SOC & Pentesting Enthusiast</p>
+            <p class="mt-2">Focused on SIEM, Threat Hunting, Incident Response & Offensive Security</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- TOOLS & PROFICIENCY -->
+    <!-- SKILLS -->
     <section id="tools" class="max-w-5xl mx-auto py-16 px-4">
-      <h3 class="text-3xl font-semibold text-center mb-8">Tools & Proficiency</h3>
+      <h3 class="text-3xl font-semibold text-center mb-8">Technical Skills</h3>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
         <div style="height:300px;">
           <canvas id="toolsChart"></canvas>
         </div>
         <ul class="space-y-2 text-lg">
-          <!-- TODO: List out your tools with percentages -->
-          <li>Kali Linux – <strong class="text-accent">90%</strong></li>
-          <li>Metasploit – <strong class="text-accent">85%</strong></li>
-          <li>Wireshark – <strong class="text-accent">80%</strong></li>
-          <li>Burp Suite – <strong class="text-accent">75%</strong></li>
-          <li>Wazuh SIEM – <strong class="text-accent">70%</strong></li>
+          <li>Incident Response & Threat Hunting – <strong class="text-accent">Advanced</strong></li>
+          <li>SIEM (Wazuh, Splunk), Log Analysis – <strong class="text-accent">Advanced</strong></li>
+          <li>Penetration Testing (Burp, Nmap, Metasploit) – <strong class="text-accent">Intermediate</strong></li>
+          <li>Python & Bash for Security Automation – <strong class="text-accent">Intermediate</strong></li>
+          <li>Linux & Windows Security – <strong class="text-accent">Advanced</strong></li>
         </ul>
       </div>
     </section>
@@ -91,70 +89,51 @@
     <!-- CERTIFICATIONS -->
     <section id="certs" class="bg-gray-50 dark:bg-gray-800 py-16 px-4">
       <div class="max-w-5xl mx-auto">
-        <h3 class="text-3xl font-semibold text-center mb-8">Certifications & Training</h3>
+        <h3 class="text-3xl font-semibold text-center mb-8">Certifications</h3>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
-          <!-- TODO: Replace icons/text with your real certs -->
-          <div><img src="https://via.placeholder.com/64" alt="" class="mx-auto mb-2"/><p>CISSP</p></div>
-          <div><img src="https://via.placeholder.com/64" alt="" class="mx-auto mb-2"/><p>OSCP</p></div>
-          <div><img src="https://via.placeholder.com/64" alt="" class="mx-auto mb-2"/><p>CEH</p></div>
-          <div><img src="https://via.placeholder.com/64" alt="" class="mx-auto mb-2"/><p>Sec+ </p></div>
+          <div><p>CompTIA Security+ (Pursuing)</p></div>
+          <div><p>Google Cybersecurity Certificate (Pursuing)</p></div>
+          <div><p>Ethical Hacking (Udemy)</p></div>
+          <div><p>Network Security (Udemy)</p></div>
         </div>
       </div>
     </section>
 
-    <!-- LABS & PROJECTS -->
+    <!-- PROJECTS -->
     <section id="labs" class="max-w-5xl mx-auto py-16 px-4">
-      <h3 class="text-3xl font-semibold text-center mb-8">Labs & Projects</h3>
+      <h3 class="text-3xl font-semibold text-center mb-8">Projects</h3>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <!-- TODO: Copy this card for each project -->
-        <a href="#" class="block bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden glightbox" data-gallery="projects" data-title="Project 1">
-          <img src="https://picsum.photos/400/250?random=1" alt="Project 1" class="w-full h-48 object-cover"/>
-          <div class="p-4">
-            <h4 class="font-semibold mb-2">SIEM Dashboard</h4>
-            <p class="text-sm">Built a real-time Wazuh dashboard on Elasticsearch.</p>
-          </div>
+        <a href="https://github.com/rajkonkar" class="block bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden p-4">
+          <h4 class="font-semibold mb-2">Wazuh SIEM Lab</h4>
+          <p class="text-sm">Simulated intrusions, triaged alerts, and tuned detection rules to reduce false positives.</p>
         </a>
-      </div>
-    </section>
-
-    <!-- WRITEUPS & PUBLICATIONS -->
-    <section id="writeups" class="bg-gray-50 dark:bg-gray-800 py-16 px-4">
-      <div class="max-w-5xl mx-auto">
-        <h3 class="text-3xl font-semibold text-center mb-8">Writeups & Publications</h3>
-        <ul class="list-disc list-inside space-y-3 text-lg">
-          <!-- TODO: Link to your writeups -->
-          <li><a href="writeups.html#buffer-overflow" class="text-accent hover:underline">Buffer Overflow Writeup</a></li>
-          <li><a href="writeups.html#web-exploit" class="text-accent hover:underline">Web Exploitation CTF</a></li>
-          <li><a href="writeups.html#forensics" class="text-accent hover:underline">Forensic Analysis Toolkit</a></li>
-        </ul>
+        <a href="https://github.com/rajkonkar" class="block bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden p-4">
+          <h4 class="font-semibold mb-2">Threat Hunting Scripts</h4>
+          <p class="text-sm">Python/Bash tools for anomaly detection and privilege escalation mapped to MITRE ATT&CK.</p>
+        </a>
+        <a href="https://github.com/rajkonkar" class="block bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden p-4">
+          <h4 class="font-semibold mb-2">Security Tools Repository</h4>
+          <p class="text-sm">Reusable scripts for system audits, log monitoring, and automated alerts published on GitHub.</p>
+        </a>
       </div>
     </section>
 
     <!-- RESUME -->
     <section id="resume" class="max-w-5xl mx-auto py-16 px-4 text-center">
       <h3 class="text-3xl font-semibold mb-6">Resume</h3>
-      <a href="resume.pdf" target="_blank"
+      <a href="Raj_Konkar_Cybersecurity_Resume.pdf" target="_blank"
          class="inline-block px-8 py-3 bg-accent text-white rounded-lg hover:bg-opacity-90 transition">
-        Download My Resume
+        Download My Resume (PDF)
       </a>
     </section>
 
     <!-- CONTACT -->
     <section id="contact" class="bg-gray-50 dark:bg-gray-800 py-16 px-4">
-      <div class="max-w-5xl mx-auto">
-        <h3 class="text-3xl font-semibold text-center mb-8">Contact Me</h3>
-        <form action="mailto:rajkonkar@example.com" method="POST" class="max-w-lg mx-auto grid gap-4">
-          <input  type="text"    name="name"    placeholder="Your Name" required
-                  class="p-3 border rounded bg-white dark:bg-gray-700"/>
-          <input  type="email"   name="email"   placeholder="Your Email" required
-                  class="p-3 border rounded bg-white dark:bg-gray-700"/>
-          <textarea name="message" placeholder="Your Message" rows="5" required
-                    class="p-3 border rounded bg-white dark:bg-gray-700"></textarea>
-          <button type="submit"
-                  class="px-6 py-3 bg-accent text-white rounded-lg hover:bg-opacity-90 transition">
-            Send Message
-          </button>
-        </form>
+      <div class="max-w-5xl mx-auto text-center">
+        <h3 class="text-3xl font-semibold mb-8">Contact Me</h3>
+        <p>Email: <a href="mailto:konkarraj1234@gmail.com" class="text-accent">konkarraj1234@gmail.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/raj-konkar-b70b512a0/" class="text-accent">linkedin.com/in/raj-konkar</a></p>
+        <p>GitHub: <a href="https://github.com/rajkonkar" class="text-accent">github.com/rajkonkar</a></p>
       </div>
     </section>
 
@@ -168,8 +147,8 @@
       new Chart(ctx, {
         type: 'radar',
         data: {
-          labels: ['Kali','Metasploit','Wireshark','Burp','Wazuh'],
-          datasets: [{ label: 'Proficiency', data: [90,85,80,75,70],
+          labels: ['Incident Response','Threat Hunting','Pentesting','Automation','Linux/Windows'],
+          datasets: [{ label: 'Proficiency', data: [90,85,70,75,80],
             backgroundColor:'rgba(30,58,138,0.3)',
             borderColor:'rgba(30,58,138,1)',
             pointBackgroundColor:'rgba(30,58,138,1)'}]
@@ -181,4 +160,3 @@
 
 </body>
 </html>
-

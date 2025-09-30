@@ -7,41 +7,84 @@
   <meta name="description" content="Cybersecurity portfolio of Raj M. Konkar — projects, labs, skills, and resume." />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = { theme: { extend: { colors: { accent:'#0f766e' } } } }
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            accent:  '#0ea5e9', /* cyan-500 */
+            accent2: '#22c55e', /* emerald-500 */
+            ink:    '#0b1220'
+          }
+        }
+      }
+    }
   </script>
   <style>
-    .card { @apply bg-white rounded-2xl border shadow p-6; }
+    /* Works with CDN (no @apply) */
+    .card {
+      background: #fff;
+      border-radius: 1rem;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+      padding: 1.5rem;
+    }
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,.14), rgba(255,255,255,.06));
+      border: 1px solid rgba(255,255,255,.25);
+      backdrop-filter: blur(6px);
+    }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-900">
-  <header class="max-w-7xl mx-auto px-4 pt-8 pb-6">
-    <div class="flex flex-wrap items-end justify-between gap-4">
-      <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Raj M. Konkar</h1>
-      <nav class="text-sm flex gap-6">
-        <a href="#grid" class="hover:text-accent">Overview</a>
-        <a href="#projects" class="hover:text-accent">Projects</a>
-        <a href="#resume" class="hover:text-accent">Resume</a>
-        <a href="#contact" class="hover:text-accent">Contact</a>
-      </nav>
+
+  <!-- HERO (Bold name + color gradient) -->
+  <header class="relative overflow-hidden">
+    <div class="absolute inset-0 -z-10 bg-gradient-to-br from-accent via-sky-600 to-accent2"></div>
+    <!-- decorative blobs -->
+    <div class="pointer-events-none absolute -top-24 -left-24 w-80 h-80 rounded-full bg-white/10 blur-3xl"></div>
+    <div class="pointer-events-none absolute -bottom-24 -right-24 w-96 h-96 rounded-full bg-black/10 blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-4 pt-16 pb-14 text-white">
+      <p class="uppercase tracking-widest text-white/80 text-xs">Cybersecurity Portfolio</p>
+      <!-- NAME EMPHASIS -->
+      <h1 class="mt-2 font-extrabold leading-[1.05] text-5xl sm:text-6xl md:text-7xl">
+        Raj <span class="whitespace-nowrap">M. Konkar</span>
+      </h1>
+      <p class="mt-4 text-white/90 text-base sm:text-lg">
+        MSc Cybersecurity (University of York) • BSc Computer Science (8.73 CGPA)
+      </p>
+      <p class="mt-2 text-white/90 max-w-3xl">
+        Hands-on in SIEM, Incident Response, Threat Hunting, and foundational Pentesting. I build labs, automation scripts, and clear write-ups others can follow.
+      </p>
+
+      <!-- CTA buttons -->
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="Raj_Konkar_Cybersecurity_Resume.pdf" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 rounded-xl px-5 py-3 bg-white text-ink font-semibold hover:bg-white/90 transition">
+          <span>⬇</span> Download Resume (PDF)
+        </a>
+        <a href="https://github.com/rajkonkar" target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 rounded-xl px-5 py-3 glass text-white font-semibold hover:bg-white/10 transition">
+          <span>💻</span> View GitHub
+        </a>
+      </div>
     </div>
-    <p class="mt-2 text-slate-600">MSc Cybersecurity (University of York) • BSc CS (8.73 CGPA)</p>
   </header>
 
-  <!-- Grid -->
-  <main id="grid" class="max-w-7xl mx-auto px-4 pb-16">
+  <!-- GRID LAYOUT -->
+  <main id="grid" class="max-w-7xl mx-auto px-4 pb-16 -mt-8">
     <div class="grid gap-6 md:grid-cols-5">
-      <!-- Left column: About + Skills (sticky on large) -->
+      <!-- Left column -->
       <section class="md:col-span-2 space-y-6">
         <article class="card">
           <h2 class="text-lg font-semibold">About</h2>
           <p class="mt-2 text-sm text-slate-700">
-            Hands-on cybersecurity generalist focused on SIEM, incident response, threat hunting, and foundational pentesting.
-            I like building small tools/labs and writing concise documentation others can follow.
+            I’m a cybersecurity generalist leaning blue-team: SIEM, detection, IR, and ATT&CK-driven hunting. I like building small tools/labs and writing concise, reproducible notes.
           </p>
           <div class="mt-4 flex flex-wrap gap-2">
             <span class="px-2.5 py-1 bg-emerald-100 text-emerald-800 rounded-full text-xs">Blue Team</span>
             <span class="px-2.5 py-1 bg-cyan-100 text-cyan-800 rounded-full text-xs">Automation</span>
-            <span class="px-2.5 py-1 bg-amber-100 text-amber-800 rounded-full text-xs">Web Sec</span>
+            <span class="px-2.5 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs">Web Sec</span>
           </div>
         </article>
 
@@ -69,7 +112,7 @@
         </article>
       </section>
 
-      <!-- Right column: Projects (dominant) -->
+      <!-- Right column -->
       <section id="projects" class="md:col-span-3 space-y-6">
         <article class="card">
           <div class="flex items-start justify-between gap-4">
@@ -78,47 +121,45 @@
           </div>
 
           <div class="mt-4 grid sm:grid-cols-2 gap-4">
-            <!-- Project row 1 -->
-            <div class="border rounded-xl p-4">
+            <div class="rounded-xl p-4 border border-slate-200">
               <h3 class="font-semibold">Wazuh SIEM Lab</h3>
               <p class="mt-1 text-sm text-slate-700">Ingested host logs; simulated brute-force & privesc; tuned rules to reduce false positives.</p>
               <div class="mt-2 flex flex-wrap gap-2">
-                <span class="px-2 py-0.5 text-xs rounded-full bg-slate-100">SIEM</span>
-                <span class="px-2 py-0.5 text-xs rounded-full bg-slate-100">Detection</span>
-                <span class="px-2 py-0.5 text-xs rounded-full bg-slate-100">Medium</span>
+                <span class="px-2 py-0.5 text-xs rounded-full bg-cyan-100 text-cyan-800">SIEM</span>
+                <span class="px-2 py-0.5 text-xs rounded-full bg-emerald-100 text-emerald-800">Detection</span>
+                <span class="px-2 py-0.5 text-xs rounded-full bg-amber-100 text-amber-800">Medium</span>
               </div>
               <a class="mt-2 inline-block text-sm text-accent hover:underline" href="https://github.com/rajkonkar" target="_blank" rel="noopener">Repo / Notes</a>
             </div>
 
-            <div class="border rounded-xl p-4">
+            <div class="rounded-xl p-4 border border-slate-200">
               <h3 class="font-semibold">Threat Hunting Scripts</h3>
               <p class="mt-1 text-sm text-slate-700">Python/Bash detection utilities for anomalies & privilege changes; ATT&CK-mapped.</p>
               <div class="mt-2 flex flex-wrap gap-2">
-                <span class="px-2 py-0.5 text-xs rounded-full bg-slate-100">ATT&CK</span>
-                <span class="px-2 py-0.5 text-xs rounded-full bg-slate-100">Automation</span>
-                <span class="px-2 py-0.5 text-xs rounded-full bg-slate-100">Medium</span>
+                <span class="px-2 py-0.5 text-xs rounded-full bg-fuchsia-100 text-fuchsia-800">ATT&CK</span>
+                <span class="px-2 py-0.5 text-xs rounded-full bg-slate-100 text-slate-800">Automation</span>
+                <span class="px-2 py-0.5 text-xs rounded-full bg-amber-100 text-amber-800">Medium</span>
               </div>
               <a class="mt-2 inline-block text-sm text-accent hover:underline" href="https://github.com/rajkonkar" target="_blank" rel="noopener">Repo / Notes</a>
             </div>
 
-            <!-- Project row 2 -->
-            <div class="border rounded-xl p-4">
+            <div class="rounded-xl p-4 border border-slate-200">
               <h3 class="font-semibold">Security Tools Repository</h3>
               <p class="mt-1 text-sm text-slate-700">Scripts for audits, log parsing, and alerting; helps bootstrap blue-team workflows.</p>
               <div class="mt-2 flex flex-wrap gap-2">
-                <span class="px-2 py-0.5 text-xs rounded-full bg-slate-100">Tooling</span>
-                <span class="px-2 py-0.5 text-xs rounded-full bg-slate-100">Automation</span>
-                <span class="px-2 py-0.5 text-xs rounded-full bg-slate-100">Easy</span>
+                <span class="px-2 py-0.5 text-xs rounded-full bg-violet-100 text-violet-800">Tooling</span>
+                <span class="px-2 py-0.5 text-xs rounded-full bg-emerald-100 text-emerald-800">Automation</span>
+                <span class="px-2 py-0.5 text-xs rounded-full bg-amber-100 text-amber-800">Easy</span>
               </div>
               <a class="mt-2 inline-block text-sm text-accent hover:underline" href="https://github.com/rajkonkar" target="_blank" rel="noopener">Repo / Notes</a>
             </div>
 
-            <div class="border rounded-xl p-4">
+            <div class="rounded-xl p-4 border border-slate-200">
               <h3 class="font-semibold">Write-ups & Notes</h3>
               <p class="mt-1 text-sm text-slate-700">CTF and lab notes with reproduction steps and mitigations.</p>
               <div class="mt-2 flex flex-wrap gap-2">
-                <span class="px-2 py-0.5 text-xs rounded-full bg-slate-100">Docs</span>
-                <span class="px-2 py-0.5 text-xs rounded-full bg-slate-100">How-to</span>
+                <span class="px-2 py-0.5 text-xs rounded-full bg-slate-100 text-slate-800">Docs</span>
+                <span class="px-2 py-0.5 text-xs rounded-full bg-slate-100 text-slate-800">How-to</span>
               </div>
               <a class="mt-2 inline-block text-sm text-accent hover:underline" href="#" target="_blank" rel="noopener">Open notes</a>
             </div>
@@ -146,7 +187,7 @@
     </div>
   </main>
 
-  <footer class="py-10 text-center text-xs text-slate-500">
+  <footer class="py-10 text-center text-xs text-slate-600">
     © <span id="y"></span> Raj M. Konkar
   </footer>
   <script>document.getElementById('y').textContent = new Date().getFullYear()</script>

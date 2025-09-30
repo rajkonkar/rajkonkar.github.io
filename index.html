@@ -1,162 +1,94 @@
 <!DOCTYPE html>
-<html lang="en"
-  x-data="{ darkMode: (localStorage.getItem('darkMode')==='true') || window.matchMedia('(prefers-color-scheme: dark)').matches }"
-  x-init="
-    document.documentElement.classList.toggle('dark', darkMode);
-    $watch('darkMode', val => {
-      document.documentElement.classList.toggle('dark', val);
-      localStorage.setItem('darkMode', val);
-    });
-  "
->
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Raj Konkar – Cybersecurity Portfolio</title>
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      darkMode: 'class',
-      theme: { extend: { colors: { accent: '#1e3a8a' } } }
-    }
-  </script>
-  <!-- Alpine.js for Dark Mode -->
-  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-  <!-- Chart.js for proficiency -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- GLightbox for project images -->
-  <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
-  <style> html { scroll-behavior: smooth; } section { scroll-margin-top: 5rem; } </style>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white font-sans transition-colors duration-300">
+<body class="bg-gray-100 text-gray-900 font-sans">
 
-  <!-- NAVBAR -->
-  <header class="fixed top-0 inset-x-0 bg-white dark:bg-gray-800 shadow z-50">
-    <div class="max-w-5xl mx-auto flex items-center justify-between p-4">
-      <h1 class="text-2xl font-bold text-accent">RajKonkar</h1>
-      <nav class="space-x-6 hidden md:block">
-        <a href="#about"    class="hover:text-accent">About</a>
-        <a href="#tools"    class="hover:text-accent">Skills</a>
-        <a href="#certs"    class="hover:text-accent">Certs</a>
-        <a href="#labs"     class="hover:text-accent">Projects</a>
-        <a href="#resume"   class="hover:text-accent">Resume</a>
-        <a href="#contact"  class="hover:text-accent">Contact</a>
-      </nav>
-      <button @click="darkMode = !darkMode" class="p-2 rounded hover:bg-gray-200 dark:hover:bg-gray-700">
-        <span x-show="!darkMode">🌙</span>
-        <span x-show="darkMode">☀️</span>
-      </button>
+  <!-- HEADER -->
+  <header class="bg-blue-900 text-white py-10">
+    <div class="max-w-4xl mx-auto text-center">
+      <h1 class="text-4xl font-bold">Raj M. Konkar</h1>
+      <p class="text-lg mt-2">MSc Cybersecurity | SOC & Pentesting Enthusiast</p>
+      <p class="mt-1">Focused on SIEM • Threat Hunting • Incident Response • Offensive Security</p>
     </div>
   </header>
 
-  <main class="pt-20">
+  <main class="max-w-4xl mx-auto p-6 space-y-12">
 
-    <!-- HERO -->
-    <section id="about" class="relative overflow-hidden">
-      <div class="bg-gradient-to-r from-accent to-blue-700 text-white py-28">
-        <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center px-4">
-          <div class="w-32 h-32 bg-white rounded-full overflow-hidden border-4 border-white mb-6 md:mb-0">
-            <img src="profile.jpg" alt="Profile" class="object-cover w-full h-full" />
-          </div>
-          <div class="md:ml-8 text-center md:text-left">
-            <h2 class="text-4xl font-bold mb-2">Raj M. Konkar</h2>
-            <p class="text-xl">MSc Cybersecurity • SOC & Pentesting Enthusiast</p>
-            <p class="mt-2">Focused on SIEM, Threat Hunting, Incident Response & Offensive Security</p>
-          </div>
-        </div>
-      </div>
+    <!-- ABOUT -->
+    <section id="about" class="text-center">
+      <h2 class="text-2xl font-semibold mb-4">About Me</h2>
+      <p>
+        I am a Cybersecurity professional with an MSc in Cybersecurity from the University of York. 
+        Skilled in SIEM monitoring, intrusion detection, incident response, and threat hunting across 
+        Linux, Windows, and cloud environments. Passionate about building security projects and 
+        continuously learning offensive and defensive techniques.
+      </p>
     </section>
 
     <!-- SKILLS -->
-    <section id="tools" class="max-w-5xl mx-auto py-16 px-4">
-      <h3 class="text-3xl font-semibold text-center mb-8">Technical Skills</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div style="height:300px;">
-          <canvas id="toolsChart"></canvas>
+    <section id="skills">
+      <h2 class="text-2xl font-semibold mb-4 text-center">Technical Skills</h2>
+      <p class="text-center">
+        Incident Response, Threat Hunting (MITRE ATT&CK), SIEM (Splunk, Wazuh), Log Analysis, 
+        Penetration Testing (Nmap, Burp Suite, Metasploit), Python & Bash Scripting, 
+        Linux & Windows Security, Networking (TCP/IP, Wireshark), Cloud Security (Azure, AWS basics)
+      </p>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <h2 class="text-2xl font-semibold mb-4 text-center">Projects</h2>
+      <div class="space-y-4">
+        <div class="bg-white p-4 rounded shadow">
+          <h3 class="font-bold">Wazuh SIEM Lab</h3>
+          <p>Simulated intrusions, triaged alerts, and tuned detection rules to reduce false positives.</p>
         </div>
-        <ul class="space-y-2 text-lg">
-          <li>Incident Response & Threat Hunting – <strong class="text-accent">Advanced</strong></li>
-          <li>SIEM (Wazuh, Splunk), Log Analysis – <strong class="text-accent">Advanced</strong></li>
-          <li>Penetration Testing (Burp, Nmap, Metasploit) – <strong class="text-accent">Intermediate</strong></li>
-          <li>Python & Bash for Security Automation – <strong class="text-accent">Intermediate</strong></li>
-          <li>Linux & Windows Security – <strong class="text-accent">Advanced</strong></li>
-        </ul>
+        <div class="bg-white p-4 rounded shadow">
+          <h3 class="font-bold">Threat Hunting Scripts</h3>
+          <p>Python/Bash tools for anomaly detection and privilege escalation mapped to MITRE ATT&CK.</p>
+        </div>
+        <div class="bg-white p-4 rounded shadow">
+          <h3 class="font-bold">Security Tools Repository</h3>
+          <p>Reusable scripts for system audits, log monitoring, and automated alerts published on GitHub.</p>
+        </div>
       </div>
     </section>
 
     <!-- CERTIFICATIONS -->
-    <section id="certs" class="bg-gray-50 dark:bg-gray-800 py-16 px-4">
-      <div class="max-w-5xl mx-auto">
-        <h3 class="text-3xl font-semibold text-center mb-8">Certifications</h3>
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center">
-          <div><p>CompTIA Security+ (Pursuing)</p></div>
-          <div><p>Google Cybersecurity Certificate (Pursuing)</p></div>
-          <div><p>Ethical Hacking (Udemy)</p></div>
-          <div><p>Network Security (Udemy)</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="labs" class="max-w-5xl mx-auto py-16 px-4">
-      <h3 class="text-3xl font-semibold text-center mb-8">Projects</h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <a href="https://github.com/rajkonkar" class="block bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden p-4">
-          <h4 class="font-semibold mb-2">Wazuh SIEM Lab</h4>
-          <p class="text-sm">Simulated intrusions, triaged alerts, and tuned detection rules to reduce false positives.</p>
-        </a>
-        <a href="https://github.com/rajkonkar" class="block bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden p-4">
-          <h4 class="font-semibold mb-2">Threat Hunting Scripts</h4>
-          <p class="text-sm">Python/Bash tools for anomaly detection and privilege escalation mapped to MITRE ATT&CK.</p>
-        </a>
-        <a href="https://github.com/rajkonkar" class="block bg-white dark:bg-gray-800 rounded-lg shadow overflow-hidden p-4">
-          <h4 class="font-semibold mb-2">Security Tools Repository</h4>
-          <p class="text-sm">Reusable scripts for system audits, log monitoring, and automated alerts published on GitHub.</p>
-        </a>
-      </div>
+    <section id="certs">
+      <h2 class="text-2xl font-semibold mb-4 text-center">Certifications</h2>
+      <ul class="list-disc list-inside space-y-2 text-center">
+        <li>CompTIA Security+ (Pursuing)</li>
+        <li>Google Cybersecurity Certificate (Pursuing)</li>
+        <li>Ethical Hacking (Udemy)</li>
+        <li>Network Security (Udemy)</li>
+      </ul>
     </section>
 
     <!-- RESUME -->
-    <section id="resume" class="max-w-5xl mx-auto py-16 px-4 text-center">
-      <h3 class="text-3xl font-semibold mb-6">Resume</h3>
+    <section id="resume" class="text-center">
+      <h2 class="text-2xl font-semibold mb-4">Resume</h2>
       <a href="Raj_Konkar_Cybersecurity_Resume.pdf" target="_blank"
-         class="inline-block px-8 py-3 bg-accent text-white rounded-lg hover:bg-opacity-90 transition">
+         class="inline-block px-6 py-3 bg-blue-900 text-white rounded hover:bg-blue-700 transition">
         Download My Resume (PDF)
       </a>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="bg-gray-50 dark:bg-gray-800 py-16 px-4">
-      <div class="max-w-5xl mx-auto text-center">
-        <h3 class="text-3xl font-semibold mb-8">Contact Me</h3>
-        <p>Email: <a href="mailto:konkarraj1234@gmail.com" class="text-accent">konkarraj1234@gmail.com</a></p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/raj-konkar-b70b512a0/" class="text-accent">linkedin.com/in/raj-konkar</a></p>
-        <p>GitHub: <a href="https://github.com/rajkonkar" class="text-accent">github.com/rajkonkar</a></p>
-      </div>
+    <section id="contact" class="text-center">
+      <h2 class="text-2xl font-semibold mb-4">Contact</h2>
+      <p>Email: <a href="mailto:konkarraj1234@gmail.com" class="text-blue-800">konkarraj1234@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/raj-konkar-b70b512a0/" class="text-blue-800">linkedin.com/in/raj-konkar</a></p>
+      <p>GitHub: <a href="https://github.com/rajkonkar" class="text-blue-800">github.com/rajkonkar</a></p>
     </section>
 
   </main>
 
-  <!-- INIT SCRIPTS -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      GLightbox({ selector: '.glightbox' });
-      const ctx = document.getElementById('toolsChart').getContext('2d');
-      new Chart(ctx, {
-        type: 'radar',
-        data: {
-          labels: ['Incident Response','Threat Hunting','Pentesting','Automation','Linux/Windows'],
-          datasets: [{ label: 'Proficiency', data: [90,85,70,75,80],
-            backgroundColor:'rgba(30,58,138,0.3)',
-            borderColor:'rgba(30,58,138,1)',
-            pointBackgroundColor:'rgba(30,58,138,1)'}]
-        },
-        options:{ scales:{ r:{ beginAtZero:true }}, maintainAspectRatio:false }
-      });
-    });
-  </script>
-
 </body>
 </html>
+
